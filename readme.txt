@@ -7,3 +7,11 @@ Etapa 1: Java, Servlets, JSP, MVC e JDBC.
 Etapa 2: Springer, Ajaxa e JPA.
 
 Etapa 3: REST API
+
+Realizado por (COLOCAR SEU NOME COMPLETO E O SEU LINK DO GITHUB EM ORDEM ALFATABÉTICA):
+
+Carlos
+Gabriel
+Pietro Minghini Moralles - https://github.com/Pietro-MM
+Rafael
+Vitor
