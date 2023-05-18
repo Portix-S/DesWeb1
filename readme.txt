@@ -10,8 +10,8 @@ Etapa 3: REST API
 
 Realizado por (COLOCAR SEU NOME COMPLETO E O SEU LINK DO GITHUB EM ORDEM ALFATABÉTICA):
 
-Carlos
+Carlos Henrique Renno Matos Filho - https://github.com/Carlos-HRM
 Gabriel Lourenço de Paula Graton - https://github.com/Notargg
 Pietro Minghini Moralles - https://github.com/Pietro-MM
-Rafael
+Rafael Naoki Arakaki Uyeta - https://github.com/Arata2703
 Vitor Matheus da Silva - https://github.com/Portix-S
