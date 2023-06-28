@@ -1,5 +1,4 @@
 package br.ufscar.dc.dsw.domain;
-import java.util.Date;
 
 public class Cliente {
 
@@ -9,13 +8,13 @@ public class Cliente {
     private String nome;
     // Adicionar senha
     private String telefone;
-    private java.sql.Date data_nascimento;
+    private String data_nascimento;
 
     public Cliente(String CPF) {
         this.CPF = CPF;
     }
 
-    public Cliente(String CPF, String sexo, String email, String nome, String telefone, java.sql.Date data_nascimento) throws Exception {
+    public Cliente(String CPF, String sexo, String email, String nome, String telefone, String data_nascimento) {
         this.CPF = CPF;
         this.sexo = sexo;
         this.email = email;
@@ -64,11 +63,11 @@ public class Cliente {
         this.telefone = telefone;
     }
 
-    public java.sql.Date getDataNascimento() {
+    public String getDataNascimento() {
         return data_nascimento;
     }
 
-    public void setDataNascimento(java.sql.Date data_nascimento) {
+    public void setDataNascimento(String data_nascimento) {
         this.data_nascimento = data_nascimento;
     }
 }

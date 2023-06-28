@@ -2,7 +2,7 @@ create database LocacaoBike;
 
 use LocacaoBike;
 
-CREATE TABLE CLIENTE (CPF varchar(11) PRIMARY KEY, sexo varchar(256) NOT NULL, email varchar(256) NOT NULL, nome varchar(256) NOT NULL, senha varchar(256), telefone varchar(256) NOT NULL, data_nascimento date NOT NULL);
+CREATE TABLE CLIENTE (CPF varchar(11) PRIMARY KEY, sexo varchar(256) NOT NULL, email varchar(256) NOT NULL, nome varchar(256) NOT NULL, senha varchar(256), telefone varchar(256) NOT NULL, data_nascimento varchar(10) NOT NULL);
 
 CREATE TABLE LOCADORA (CNPJ varchar(14) PRIMARY KEY, cidade varchar(256) NOT NULL, email varchar(256) NOT NULL, nome varchar(256) NOT NULL, senha varchar(256));
 

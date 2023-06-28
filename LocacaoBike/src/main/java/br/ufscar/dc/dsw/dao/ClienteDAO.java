@@ -25,7 +25,7 @@ public class ClienteDAO extends GenericDAO {
             statement.setString(3, cliente.getEmail());
             statement.setString(4, cliente.getNome());
             statement.setString(5, cliente.getTelefone());
-            statement.setDate(6, cliente.getDataNascimento());
+            statement.setString(6, cliente.getDataNascimento());
             statement.executeUpdate();
 
             statement.close();
@@ -51,7 +51,7 @@ public class ClienteDAO extends GenericDAO {
                 String email = resultSet.getString("email");
                 String nome = resultSet.getString("nome");
                 String telefone = resultSet.getString("telefone");
-                java.sql.Date data_nascimento = resultSet.getDate("data_nascimento");
+                String data_nascimento = resultSet.getString("data_nascimento");
                 Cliente cliente = new Cliente(CPF, sexo, email, nome, telefone, data_nascimento);
                 listaClientes.add(cliente);
             }
@@ -94,7 +94,7 @@ public class ClienteDAO extends GenericDAO {
             statement.setString(3, cliente.getNome());
             statement.setString(4, cliente.getCPF());
             statement.setString(5, cliente.getSexo());
-            statement.setDate(6, cliente.getDataNascimento());
+            statement.setString(6, cliente.getDataNascimento());
             statement.executeUpdate();
 
             statement.close();
@@ -119,7 +119,7 @@ public class ClienteDAO extends GenericDAO {
                 String email = resultSet.getString("email");
                 String nome = resultSet.getString("nome");
                 String telefone = resultSet.getString("telefone");
-                java.sql.Date data_nascimento = resultSet.getDate("data_nascimento");
+                String data_nascimento = resultSet.getString("data_nascimento");
                 cliente = new Cliente(CPF, sexo, email, nome, telefone, data_nascimento);
             }
 

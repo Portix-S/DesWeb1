@@ -29,12 +29,12 @@
    	<tr>
    		<td><label for="email">Email</label></td>
    		<td><input type="text" id="email" name="email" size="5" required
-   			min="1500" value="${locadora.email}" /></td>
+   			value="${locadora.email}" /></td>
    	</tr>
    	<tr>
    		<td><label for="nome">Nome</label></td>
    		<td><input type="text" id="nome" name="nome" required
-   			min="0.01" step="any" size="5" value="${locadora.nome}" /></td>
+   			value="${locadora.nome}" /></td>
    	</tr>
    	<tr>
    		<td colspan="2" align="center"><input type="submit" value="Salva" /></td>

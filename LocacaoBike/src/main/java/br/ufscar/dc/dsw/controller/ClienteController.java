@@ -12,8 +12,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.sql.Date;
-import java.text.SimpleDateFormat;
 
 @WebServlet(urlPatterns = "/clientes/*")
 public class ClienteController extends HttpServlet {
@@ -92,12 +90,7 @@ public class ClienteController extends HttpServlet {
         String email = request.getParameter("email");
         String nome = request.getParameter("nome");
         String telefone = request.getParameter("telefone");
-        String dataString = request.getParameter("data_nascimento");
-        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
-        try {
-            java.sql.Date data_nascimento = new java.sql.Date(formato.parse(dataString).getTime());
-        }
-        catch (Exception e) {}
+        String data_nascimento = request.getParameter("data_nascimento");
         
         Cliente cliente = new Cliente(CPF, sexo, email, nome, telefone, data_nascimento);
         dao.insert(cliente);
@@ -112,9 +105,7 @@ public class ClienteController extends HttpServlet {
         String email = request.getParameter("email");
         String nome = request.getParameter("nome");
         String telefone = request.getParameter("telefone");
-        String dataString = request.getParameter("data_nascimento");
-        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
-        java.sql.Date data_nascimento = new java.sql.Date(formato.parse(dataString).getTime());
+        String data_nascimento = request.getParameter("data_nascimento");
         
         Cliente cliente = new Cliente(CPF, sexo, email, nome, telefone, data_nascimento);
         dao.update(cliente);
