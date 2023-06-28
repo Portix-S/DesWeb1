@@ -90,7 +90,7 @@ public class LocadoraController extends HttpServlet {
         String email = request.getParameter("email");
         String nome = request.getParameter("nome");
         
-        Locadora locadora = new Locadora(cnpj, cidade, email, nome);
+        Locadora locadora = new Locadora(cnpj, cidade, email, nome); // Alterar
         dao.insert(locadora);
         response.sendRedirect("lista");
     }

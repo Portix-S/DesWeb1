@@ -16,7 +16,7 @@ public class AcessaBD {
 			Class.forName("com.mysql.cj.jdbc.Driver");
             String url = "jdbc:mysql://localhost:3306/LocacaoBike";
 			Connection con = (Connection) DriverManager.getConnection(url,
-					"root", "Naoki678");
+					"root", "portix");
 
 			/* Setup para uso do banco de dados Apache Derby */
 

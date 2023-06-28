@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.ufscar.dc.dsw.domain.Locadora;
+import br.ufscar.dc.dsw.domain.Usuario;
+import br.ufscar.dc.dsw.dao.UsuarioDAO;
 
 public class LocadoraDAO extends GenericDAO {
 
@@ -24,6 +26,11 @@ public class LocadoraDAO extends GenericDAO {
             statement.setString(2, locadora.getCidade());
             statement.setString(3, locadora.getEmail());
             statement.setString(4, locadora.getNome());
+
+            // Usuario usuario = new Usuario()
+            // Inserir no dao
+            // Colocar senha e atualizar no DAO do usuário
+            // Lembrar de atualizar no Cliente DAO quanto der pull
             statement.executeUpdate();
 
             statement.close();

@@ -6,21 +6,20 @@ public class Cliente {
     private String sexo;
     private String email;
     private String nome;
-    // Adicionar senha
+    private String senha;
     private String telefone;
-    private String data_nascimento;
+    private Date data_nascimento;
+    private String papel;
 
-    public Cliente(String CPF) {
-        this.CPF = CPF;
-    }
-
-    public Cliente(String CPF, String sexo, String email, String nome, String telefone, String data_nascimento) {
+    public Cliente(String CPF, String sexo, String email, String nome, String senha,String telefone, Date data_nascimento) {
         this.CPF = CPF;
         this.sexo = sexo;
         this.email = email;
         this.nome = nome;
+        this.senha = senha;
         this.telefone = telefone;
         this.data_nascimento = data_nascimento;
+        this.papel = "cliente";
     }
 
     public String getCPF() {
@@ -51,8 +50,18 @@ public class Cliente {
         return nome;
     }
 
+    public String getSenha()
+    {
+        return senha;
+    }
+
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public void setSenha(String senha)
+    {
+        this.senha = senha;
     }
 
     public String getTelefone() {
@@ -69,5 +78,15 @@ public class Cliente {
 
     public void setDataNascimento(String data_nascimento) {
         this.data_nascimento = data_nascimento;
+    }
+
+    public String getPapel()
+    {
+        return papel;
+    }
+
+    public void setPapel(String papel)
+    {
+        this.papel = papel;
     }
 }
