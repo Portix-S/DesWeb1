@@ -1,7 +1,11 @@
 package br.ufscar.dc.dsw.domain;
 
 public class Usuario {
-
+	// Talvez criar o usuario dentro do Cliente e Locadora, assim não
+	//precisa duplicar nome/login/senha, apenas nos gets pega do Usuário direto
+	// Talvez isso facilite os métodos de atualização/inserção/remoção
+	//de usuários
+	// Usar email(login) como chave primária?
 	private Long id;
 	private String nome;
 	private String login;

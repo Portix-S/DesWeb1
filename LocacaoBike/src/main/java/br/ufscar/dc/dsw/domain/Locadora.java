@@ -8,11 +8,6 @@ public class Locadora {
     private String senha;
     private String papel;
 
-    public Locadora(String CNPJ) {
-        this.CNPJ = CNPJ;
-        this.papel = "locadora";
-    }
-
     public Locadora(String CNPJ, String cidade, String email, String nome, String senha) {
         this.CNPJ = CNPJ;
         this.cidade = cidade;
