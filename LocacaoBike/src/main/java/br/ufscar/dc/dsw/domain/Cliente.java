@@ -9,21 +9,13 @@ public class Cliente {
     private String nome;
     // Adicionar senha
     private String telefone;
-    private Date data_nascimento;
+    private java.sql.Date data_nascimento;
 
     public Cliente(String CPF) {
         this.CPF = CPF;
     }
 
-    public Cliente(String sexo, String email, String nome, String telefone, Date data_nascimento) {
-        this.sexo = sexo;
-        this.email = email;
-        this.nome = nome;
-        this.telefone = telefone;
-        this.data_nascimento = data_nascimento;
-    }
-
-    public Cliente(String CPF, String sexo, String email, String nome, String telefone, Date data_nascimento) {
+    public Cliente(String CPF, String sexo, String email, String nome, String telefone, java.sql.Date data_nascimento) throws Exception {
         this.CPF = CPF;
         this.sexo = sexo;
         this.email = email;
@@ -72,11 +64,11 @@ public class Cliente {
         this.telefone = telefone;
     }
 
-    public Date getDataNascimento() {
+    public java.sql.Date getDataNascimento() {
         return data_nascimento;
     }
 
-    public void setDataNascimento(int ano, int mes, int dia) {
-        this.data_nascimento = new Date(ano, mes, dia);
+    public void setDataNascimento(java.sql.Date data_nascimento) {
+        this.data_nascimento = data_nascimento;
     }
 }
