@@ -9,19 +9,19 @@ public class Cliente {
     private String nome;
     // Adicionar senha
     private String telefone;
-    private java.sql.Date data_nascimento;
+    private String datanascimento;
 
     public Cliente(String CPF) {
         this.CPF = CPF;
     }
 
-    public Cliente(String CPF, String sexo, String email, String nome, String telefone, java.sql.Date data_nascimento) throws Exception {
+    public Cliente(String CPF, String sexo, String email, String nome, String telefone, String datanascimento) {
         this.CPF = CPF;
         this.sexo = sexo;
         this.email = email;
         this.nome = nome;
         this.telefone = telefone;
-        this.data_nascimento = data_nascimento;
+        this.datanascimento = datanascimento;
     }
 
     public String getCPF() {
@@ -64,11 +64,11 @@ public class Cliente {
         this.telefone = telefone;
     }
 
-    public java.sql.Date getDataNascimento() {
-        return data_nascimento;
+    public String getDataNascimento() {
+        return datanascimento;
     }
 
-    public void setDataNascimento(java.sql.Date data_nascimento) {
-        this.data_nascimento = data_nascimento;
+    public void setDataNascimento(String datanascimento) {
+        this.datanascimento = datanascimento;
     }
 }

@@ -12,8 +12,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.sql.Date;
-import java.text.SimpleDateFormat;
 
 @WebServlet(urlPatterns = "/clientes/*")
 public class ClienteController extends HttpServlet {
@@ -85,6 +83,7 @@ public class ClienteController extends HttpServlet {
     }
 
     private void insere(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        
         request.setCharacterEncoding("UTF-8");
         
         String CPF = request.getParameter("CPF");
@@ -92,14 +91,9 @@ public class ClienteController extends HttpServlet {
         String email = request.getParameter("email");
         String nome = request.getParameter("nome");
         String telefone = request.getParameter("telefone");
-        String dataString = request.getParameter("data_nascimento");
-        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
-        try {
-            java.sql.Date data_nascimento = new java.sql.Date(formato.parse(dataString).getTime());
-        }
-        catch (Exception e) {}
+        String datanascimento = request.getParameter("datanascimento");
         
-        Cliente cliente = new Cliente(CPF, sexo, email, nome, telefone, data_nascimento);
+        Cliente cliente = new Cliente(CPF, sexo, email, nome, telefone, datanascimento);
         dao.insert(cliente);
         response.sendRedirect("lista");
     }
@@ -107,16 +101,15 @@ public class ClienteController extends HttpServlet {
     private void atualize(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         request.setCharacterEncoding("UTF-8");
+        
         String CPF = request.getParameter("CPF");
         String sexo = request.getParameter("sexo");
         String email = request.getParameter("email");
         String nome = request.getParameter("nome");
         String telefone = request.getParameter("telefone");
-        String dataString = request.getParameter("data_nascimento");
-        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
-        java.sql.Date data_nascimento = new java.sql.Date(formato.parse(dataString).getTime());
+        String datanascimento = request.getParameter("datanascimento");
         
-        Cliente cliente = new Cliente(CPF, sexo, email, nome, telefone, data_nascimento);
+        Cliente cliente = new Cliente(CPF, sexo, email, nome, telefone, datanascimento);
         dao.update(cliente);
         response.sendRedirect("lista");
     }

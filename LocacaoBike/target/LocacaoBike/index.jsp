@@ -9,4 +9,7 @@
     <body>
         <a href="locadoras">CRUD Locadoras</a>
     </body>
+    <body>
+        <a href="clientes">CRUD Clientes</a>
+    </body>
 </html>

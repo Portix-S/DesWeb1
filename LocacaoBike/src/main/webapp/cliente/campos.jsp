@@ -29,22 +29,22 @@
    	<tr>
    		<td><label for="email">Email</label></td>
    		<td><input type="text" id="email" name="email" size="5" required
-   			min="1500" value="${locadora.email}" /></td>
+   			value="${locadora.email}" /></td>
    	</tr>
    	<tr>
    		<td><label for="nome">Nome</label></td>
    		<td><input type="text" id="nome" name="nome" required
-   			min="0.01" step="any" size="5" value="${locadora.nome}" /></td>
+   			value="${locadora.nome}" /></td>
    	</tr>
        <tr>
         <td><label for="telefone">Telefone</label></td>
         <td><input type="text" id="telefone" name="telefone" required
-            min="0.01" step="any" size="5" value="${cliente.telefone}" /></td>
+            value="${cliente.telefone}" /></td>
     </tr>
     <tr>
-        <td><label for="data_nascimento">Data de Nascimento</label></td>
-        <td><input type="date" id="data_nascimento" name="data_nascimento" required
-            min="0.01" step="any" size="5" value="${cliente.data_nascimento}" /></td>
+        <td><label for="datanascimento">Data de Nascimento</label></td>
+        <td><input type="text" id="datanascimento" name="datanascimento" required
+            value="${cliente.datanascimento}" /></td>
     </tr>
    	<tr>
    		<td colspan="2" align="center"><input type="submit" value="Salva" /></td>

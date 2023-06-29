@@ -11,7 +11,7 @@
 		String contextPath = request.getContextPath().replace("/", "");
 	%>
 	<div align="center">
-		<h1>Gerenciamento de Clientes</h1>
+		<h1>Gerenciamento de Cliente</h1>
 		<h2>
 			<a href="/<%=contextPath%>">Menu Principal</a> &nbsp;&nbsp;&nbsp; <a
 				href="/<%=contextPath%>/clientes/cadastro">Adicione Novo Cliente</a>
@@ -26,8 +26,8 @@
 				<th>Sexo</th>
 				<th>Email</th>
 				<th>Nome</th>
-                <th>Telefone</th>
-                <th>Data de Nascimento</th>
+				<th>Telefone</th>
+				<th>Nascimento</th>
 			</tr>
 			<c:forEach var="cliente" items="${requestScope.listaClientes}">
 				<tr>
@@ -35,8 +35,8 @@
 					<td>${cliente.sexo}</td>
 					<td>${cliente.email}</td>
 					<td>${cliente.nome}</td>
-                    <td>${cliente.telefone}</td>
-                    <td>${cliente.data_nascimento}</td>
+					<td>${cliente.telefone}</td>
+					<td>${cliente.getDataNascimento()}</td>
 					<td><a href="/<%= contextPath%>/clientes/edicao?CPF=${cliente.CPF}">Edição</a>
 						&nbsp;&nbsp;&nbsp;&nbsp; <a
 						href="/<%= contextPath%>/clientes/remocao?CPF=${cliente.CPF}"
