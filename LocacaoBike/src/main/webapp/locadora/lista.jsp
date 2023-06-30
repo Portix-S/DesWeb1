@@ -29,10 +29,10 @@
 			</tr>
 			<c:forEach var="locadora" items="${requestScope.listaLocadoras}">
 				<tr>
-					<td>${locadora.CNPJ}</td>
-					<td>${locadora.cidade}</td>
-					<td>${locadora.email}</td>
-					<td>${locadora.nome}</td>
+					<td>${locadora.getCNPJ()}</td>
+					<td>${locadora.getCidade()}</td>
+					<td>${locadora.getEmail()}</td>
+					<td>${locadora.getNome()}</td>
 					<td><a href="/<%= contextPath%>/locadoras/edicao?CNPJ=${locadora.CNPJ}">Edição</a>
 						&nbsp;&nbsp;&nbsp;&nbsp; <a
 						href="/<%= contextPath%>/locadoras/remocao?CNPJ=${locadora.CNPJ}"

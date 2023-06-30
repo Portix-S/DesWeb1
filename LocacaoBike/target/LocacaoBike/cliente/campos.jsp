@@ -44,7 +44,7 @@
     <tr>
         <td><label for="datanascimento">Data de Nascimento</label></td>
         <td><input type="text" id="datanascimento" name="datanascimento" required
-            value="${cliente.datanascimento}" /></td>
+            value="${cliente.setDataNascimento(datanascimento)}" /></td>
     </tr>
    	<tr>
    		<td colspan="2" align="center"><input type="submit" value="Salva" /></td>
