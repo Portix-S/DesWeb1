@@ -36,6 +36,11 @@
    		<td><input type="text" id="nome" name="nome" required
    			value="${locadora.nome}" /></td>
    	</tr>
+	<tr>
+        <td><label for="senha">Senha de Usuário</label></td>
+        <td><input type="text" id="senha" name="senha" required
+            value="${cliente.senha}" /></td>
+    </tr>
    	<tr>
    		<td colspan="2" align="center"><input type="submit" value="Salva" /></td>
    	</tr>

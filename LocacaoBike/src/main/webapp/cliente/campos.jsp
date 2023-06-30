@@ -43,8 +43,13 @@
     </tr>
     <tr>
         <td><label for="data_nascimento">Data de nascimento</label></td>
-        <td><input type="String" id="data_nascimento" name="data_nascimento" required
+        <td><input type="text" id="data_nascimento" name="data_nascimento" required
             value="${cliente.data_nascimento}" /></td>
+    </tr>
+	<tr>
+        <td><label for="senha">Senha de Usuário</label></td>
+        <td><input type="text" id="senha" name="senha" required
+            value="${cliente.senha}" /></td>
     </tr>
    	<tr>
    		<td colspan="2" align="center"><input type="submit" value="Salva" /></td>

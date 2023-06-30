@@ -89,9 +89,9 @@ public class LocadoraController extends HttpServlet {
         String cidade = request.getParameter("cidade");
         String email = request.getParameter("email");
         String nome = request.getParameter("nome");
-        String papel = request.getParameter("papel");
+        String senha = request.getParameter("senha");
         
-        Locadora locadora = new Locadora(cnpj, cidade, email, nome, papel); // Alterar
+        Locadora locadora = new Locadora(cnpj, cidade, email, nome, senha); // Alterar
         dao.insert(locadora);
         response.sendRedirect("lista");
     }
@@ -103,9 +103,9 @@ public class LocadoraController extends HttpServlet {
         String cidade = request.getParameter("cidade");
         String email = request.getParameter("email");
         String nome = request.getParameter("nome");
-        String papel = request.getParameter("papel");
+        String senha = request.getParameter("senha");
 
-        Locadora locadora = new Locadora(CNPJ, cidade, email, nome, papel);
+        Locadora locadora = new Locadora(CNPJ, cidade, email, nome, senha);
         dao.update(locadora);
         response.sendRedirect("lista");
     }

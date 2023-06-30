@@ -2,17 +2,19 @@ create database LocacaoBike;
 
 use LocacaoBike;
 
+CREATE TABLE CLIENTE (CPF varchar(11) PRIMARY KEY, sexo varchar(256) NOT NULL, email varchar(256) NOT NULL, nome varchar(256) NOT NULL, senha varchar(256) NOT NULL, telefone varchar(256) NOT NULL, data_nascimento varchar(11) NOT NULL, papel varchar(256) NOT NULL);
 
-CREATE TABLE LOCADORA (CNPJ varchar(14) PRIMARY KEY, cidade varchar(256) NOT NULL, email varchar(256) NOT NULL, nome varchar(256) NOT NULL, senha varchar(256), papel varchar(256) NOT NULL);
+CREATE TABLE LOCADORA (CNPJ varchar(14) PRIMARY KEY, cidade varchar(256) NOT NULL, email varchar(256) NOT NULL, nome varchar(256) NOT NULL, senha varchar(256), NOT NULL, papel varchar(256) NOT NULL);
 
 CREATE TABLE LOCACAO (CPF varchar(11), CNPJ varchar(14), data_locacao datetime NOT NULL, FOREIGN KEY (CPF) REFERENCES CLIENTE(CPF), FOREIGN KEY (CNPJ) REFERENCES LOCADORA(CNPJ));
 
-INSERT INTO LOCADORA (CNPJ,cidade,email,nome,senha)
+INSERT INTO LOCADORA (CNPJ,cidade,email,nome,senha, papel)
 VALUES
   ('81816304803883',"Açailândia","dui.quis@outlook.com","Montes Nascetur Corporation","UAU98GXH1QG","locadora"),
   ('53582506660484',"Osasco","nostra.per.inceptos@protonmail.net","Luctus Ut LLC","GWM17NPY2NA","locadora"),
   ('68710705096438',"Barra do Corda","purus@google.edu","Arcu Et Corporation","BKK21XGG1BA","locadora");
 
+INSERT INTO CLIENTE (CPF, sexo, email, nome, senha, telefone, data_nascimento, papel)
 VALUES
   ('11656417042',"Masculino","at.egestas.a@protonmail.edu","Felix Mota","VLX85QQV7LG","(84)608476104","1995-07-13","cliente"),
   ('11409211567',"Masculino","enim@icloud.edu","Lysandra Leite","DDI95ELN4OR","(16)424555162","2017-03-02","cliente"),
@@ -24,6 +26,7 @@ VALUES
   ('11855363127',"Masculino","varius.orci@aol.edu","Amber Galdino","MUV73NUW2RE","(97)411125778","1990-06-18","cliente"),
   ('11171396330',"Masculino","augue.eu.tellus@aol.ca","Dai Cavalcante","KCW23JRU6UX","(51)825474353","1998-09-07","cliente"),
   ('12167818293',"Masculino","morbi@google.org","Uriel Braga","HSK81KVN6MS","(71)436038651","2013-02-02","cliente");
+INSERT INTO CLIENTE (CPF, sexo, email, nome, senha, telefone, data_nascimento, papel)
 VALUES
   ('11932068947',"Feminino","aliquam@icloud.org","Gareth Nascimento","NJH36LNL8XH","(03)655220530","1991-03-18","cliente"),
   ('11949635508',"Feminino","etiam.vestibulum.massa@aol.couk","Fay de Castro","TVW63PLO2CV","(02)852763681","2017-12-23","cliente"),

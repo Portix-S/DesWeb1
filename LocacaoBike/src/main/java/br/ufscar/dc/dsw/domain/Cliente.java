@@ -54,13 +54,13 @@ public class Cliente {
         return nome;
     }
 
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
     public String getSenha()
     {
         return senha;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
     }
 
     public void setSenha(String senha)
@@ -80,7 +80,7 @@ public class Cliente {
         return data_nascimento;
     }
 
-    public void setDataNascimento(String data_nascimento) {
+    public void getDataNascimento(String data_nascimento) {
         this.data_nascimento = data_nascimento;
     }
 

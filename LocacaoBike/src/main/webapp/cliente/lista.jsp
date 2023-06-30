@@ -31,12 +31,12 @@
 			</tr>
 			<c:forEach var="cliente" items="${requestScope.listaClientes}">
 				<tr>
-					<td>${cliente.CPF}</td>
-					<td>${cliente.sexo}</td>
-					<td>${cliente.email}</td>
-					<td>${cliente.nome}</td>
-                    <td>${cliente.telefone}</td>
-					<td>${cliente.datanascimento}</td>
+					<td>${cliente.getCPF()}</td>
+					<td>${cliente.getSexo()}</td>
+					<td>${cliente.getEmail()}</td>
+					<td>${cliente.getNome()}</td>
+                    <td>${cliente.getTelefone()}</td>
+					<td>${cliente.getDataNascimento()}</td>
 					<td><a href="/<%= contextPath%>/clientes/edicao?CPF=${cliente.CPF}">Edição</a>
 						&nbsp;&nbsp;&nbsp;&nbsp; <a
 						href="/<%= contextPath%>/clientes/remocao?CPF=${cliente.CPF}"
