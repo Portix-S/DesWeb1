@@ -13,7 +13,7 @@ import br.ufscar.dc.dsw.domain.Cliente;
 public class ClienteDAO extends GenericDAO {
 
     public void insert(Cliente cliente) {
-        String sql = "INSERT INTO CLIENTE (CPF, sexo, email, nome, telefone, data_nascimento) VALUES (?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO CLIENTE (CPF, sexo, email, nome, telefone, data_nascimento, papel) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
         try {
             Connection conn = this.getConnection();
@@ -26,6 +26,7 @@ public class ClienteDAO extends GenericDAO {
             statement.setString(4, cliente.getNome());
             statement.setString(5, cliente.getTelefone());
             statement.setString(6, cliente.getDataNascimento());
+            statement.setString(7, cliente.getPapel());
             statement.executeUpdate();
 
             statement.close();
@@ -52,7 +53,8 @@ public class ClienteDAO extends GenericDAO {
                 String nome = resultSet.getString("nome");
                 String telefone = resultSet.getString("telefone");
                 String data_nascimento = resultSet.getString("data_nascimento");
-                Cliente cliente = new Cliente(CPF, sexo, email, nome, telefone, data_nascimento);
+                String nome = resultSet.getString("nome");
+                Cliente cliente = new Cliente(CPF, sexo, email, nome, telefone, data_nascimento, papel);
                 listaClientes.add(cliente);
             }
 
@@ -83,7 +85,7 @@ public class ClienteDAO extends GenericDAO {
     }
 
     public void update(Cliente cliente) {
-        String sql = "UPDATE CLIENTE SET sexo = ?, email = ?, nome = ?, telefone = ?, data_nascimento = ? WHERE CPF = ?";
+        String sql = "UPDATE CLIENTE SET sexo = ?, email = ?, nome = ?, telefone = ?, data_nascimento = ?, papel = ? WHERE CPF = ?";
 
         try {
             Connection conn = this.getConnection();
@@ -95,6 +97,7 @@ public class ClienteDAO extends GenericDAO {
             statement.setString(4, cliente.getCPF());
             statement.setString(5, cliente.getSexo());
             statement.setString(6, cliente.getDataNascimento());
+            statement.setString(7, cliente.getPapel());
             statement.executeUpdate();
 
             statement.close();
@@ -120,7 +123,8 @@ public class ClienteDAO extends GenericDAO {
                 String nome = resultSet.getString("nome");
                 String telefone = resultSet.getString("telefone");
                 String data_nascimento = resultSet.getString("data_nascimento");
-                cliente = new Cliente(CPF, sexo, email, nome, telefone, data_nascimento);
+                String papel = resultSet.getString("papel");
+                cliente = new Cliente(CPF, sexo, email, nome, telefone, data_nascimento, papel);
             }
 
             resultSet.close();

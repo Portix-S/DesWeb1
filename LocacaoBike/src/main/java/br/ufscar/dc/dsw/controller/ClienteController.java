@@ -91,8 +91,8 @@ public class ClienteController extends HttpServlet {
         String nome = request.getParameter("nome");
         String telefone = request.getParameter("telefone");
         String data_nascimento = request.getParameter("data_nascimento");
+        String papel = request.getParameter("papel");
         
-        Cliente cliente = new Cliente(CPF, sexo, email, nome, telefone, data_nascimento);
         dao.insert(cliente);
         response.sendRedirect("lista");
     }
@@ -106,8 +106,8 @@ public class ClienteController extends HttpServlet {
         String nome = request.getParameter("nome");
         String telefone = request.getParameter("telefone");
         String data_nascimento = request.getParameter("data_nascimento");
+        String papel = request.getParameter("papel");
         
-        Cliente cliente = new Cliente(CPF, sexo, email, nome, telefone, data_nascimento);
         dao.update(cliente);
         response.sendRedirect("lista");
     }

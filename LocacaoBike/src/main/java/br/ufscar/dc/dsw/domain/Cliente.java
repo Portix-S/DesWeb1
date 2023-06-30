@@ -8,10 +8,14 @@ public class Cliente {
     private String nome;
     private String senha;
     private String telefone;
-    private Date data_nascimento;
+    private String data_nascimento;
     private String papel;
 
-    public Cliente(String CPF, String sexo, String email, String nome, String senha,String telefone, Date data_nascimento) {
+    public Cliente(String CPF) {
+        this.CPF = CPF;
+    }   
+
+    public Cliente(String CPF, String sexo, String email, String nome, String senha,String telefone, String data_nascimento) {
         this.CPF = CPF;
         this.sexo = sexo;
         this.email = email;

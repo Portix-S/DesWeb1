@@ -36,7 +36,7 @@
 					<td>${cliente.email}</td>
 					<td>${cliente.nome}</td>
                     <td>${cliente.telefone}</td>
-					<td>${cliente."data_nascimento"}</td>
+					<td>${cliente.datanascimento}</td>
 					<td><a href="/<%= contextPath%>/clientes/edicao?CPF=${cliente.CPF}">Edição</a>
 						&nbsp;&nbsp;&nbsp;&nbsp; <a
 						href="/<%= contextPath%>/clientes/remocao?CPF=${cliente.CPF}"
