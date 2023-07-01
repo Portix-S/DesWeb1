@@ -70,7 +70,7 @@ public class ClienteDAO extends GenericDAO {
                 String telefone = resultSet.getString("telefone");
                 String data_nascimento = resultSet.getString("data_nascimento");
                 String papel = resultSet.getString("papel");
-                Cliente cliente = new Cliente(CPF, sexo, email, nome, senha, telefone, data_nascimento);
+                Cliente cliente = new Cliente(CPF, sexo, email, nome, senha, telefone, data_nascimento, papel);
                 listaClientes.add(cliente);
             }
 
@@ -104,11 +104,12 @@ public class ClienteDAO extends GenericDAO {
     }
 
     public void update(Cliente cliente) {
-        String sql = "UPDATE CLIENTE SET sexo = ?, email = ?, nome = ?, telefone = ?, data_nascimento = ? WHERE CPF = ?";
+        String sql = "UPDATE CLIENTE SET sexo = ?, email = ?, nome = ?, senha = ?, telefone = ?, data_nascimento = ?, papel = ? WHERE CPF = ?";
 
         try {
             Connection conn = this.getConnection();
             PreparedStatement statement = conn.prepareStatement(sql);
+            System.out.println("Atualizando cliente");
 
             statement.setString(1, cliente.getCPF());
             statement.setString(2, cliente.getSexo());
@@ -125,6 +126,8 @@ public class ClienteDAO extends GenericDAO {
 
             statement.close();
             conn.close();
+            System.out.println("Atualizou cliente");
+
         } catch (SQLException e) {
             System.out.println(e);
             System.out.println("Erro ao atualizar cliente");

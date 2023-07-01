@@ -14,42 +14,42 @@
    		</c:choose>
 	</caption>
  	<c:if test="${cliente != null}">
-   		<input type="hidden" name="CPF" value="${cliente.CPF}" />
+   		<input type="hidden" name="CPF" value="${cliente.getCPF()}" />
    	</c:if>
    	<tr>
    		<td><label for="CPF">CPF</label></td>
    		<td><input type="text" id="CPF" name="CPF" size="45"
-   			required value="${cliente.CPF}" /></td>
+   			required value="${cliente.getCPF()}" /></td>
    	</tr>
    	<tr>
    		<td><label for="sexo">Sexo</label></td>
    		<td><input type="text" id="sexo" name="sexo" size="45" required
-   			value="${cliente.sexo}" /></td>
+   			value="${cliente.getSexo()}" /></td>
    	</tr>
    	<tr>
    		<td><label for="email">Email</label></td>
    		<td><input type="text" id="email" name="email" size="5" required
-   			value="${cliente.email}" /></td>
+   			value="${cliente.getEmail()}" /></td>
    	</tr>
    	<tr>
    		<td><label for="nome">Nome</label></td>
    		<td><input type="text" id="nome" name="nome" required
-   			value="${cliente.nome}" /></td>
+   			value="${cliente.getNome()}" /></td>
    	</tr>
        <tr>
         <td><label for="telefone">Telefone</label></td>
         <td><input type="text" id="telefone" name="telefone" required
-            value="${cliente.telefone}" /></td>
+            value="${cliente.getTelefone()}" /></td>
     </tr>
     <tr>
         <td><label for="data_nascimento">Data de nascimento</label></td>
         <td><input type="text" id="data_nascimento" name="data_nascimento" required
-            value="${cliente.data_nascimento}" /></td>
+            value="${cliente.getDataNascimento()}" /></td>
     </tr>
 	<tr>
         <td><label for="senha">Senha de Usuário</label></td>
         <td><input type="text" id="senha" name="senha" required
-            value="${cliente.senha}" /></td>
+            value="${cliente.getSenha()}" /></td>
     </tr>
    	<tr>
    		<td colspan="2" align="center"><input type="submit" value="Salva" /></td>

@@ -114,19 +114,25 @@ public class ClienteController extends HttpServlet {
         String telefone = request.getParameter("telefone");
         String data_nascimento = request.getParameter("data_nascimento");
         String papel = request.getParameter("papel");
-        Usuario usuario = new Usuario(nome, email, senha, papel);
-        usuarioDao.update(usuario);
-        Cliente cliente = new Cliente(CPF, sexo, email, nome, senha, telefone, data_nascimento, papel);
+        Cliente cliente = new Cliente(CPF, sexo, email, nome, senha, telefone, data_nascimento, "cliente");
         dao.update(cliente);
+
+        Usuario usuario = new Usuario(nome, email, senha, "cliente");
+        usuarioDao.update(usuario);
         response.sendRedirect("lista");
     }
 
-    private void remove(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    private void remove(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
         String CPF = request.getParameter("CPF");
         String email = request.getParameter("email");
-        Cliente cliente = new Cliente(CPF);
+        Cliente cliente = dao.get(CPF);
+
+        //Cliente cliente = new Cliente(CPF);
         dao.delete(cliente);
-        usuarioDao.delete(email);
+        
+        usuarioDao.delete(cliente.getEmail());
+
         response.sendRedirect("lista");
     }
 }

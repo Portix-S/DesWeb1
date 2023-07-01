@@ -26,8 +26,10 @@
 				<th>Sexo</th>
 				<th>Email</th>
 				<th>Nome</th>
+				<th>Senha</th>
                 <th>Telefone</th>
                 <th>Data de Nascimento</th>
+                <th>Papel</th>
 			</tr>
 			<c:forEach var="cliente" items="${requestScope.listaClientes}">
 				<tr>
@@ -35,8 +37,10 @@
 					<td>${cliente.getSexo()}</td>
 					<td>${cliente.getEmail()}</td>
 					<td>${cliente.getNome()}</td>
+					<td>${cliente.getSenha()}</td>
                     <td>${cliente.getTelefone()}</td>
 					<td>${cliente.getDataNascimento()}</td>
+					<td>${cliente.getPapel()}</td>
 					<td><a href="/<%= contextPath%>/clientes/edicao?CPF=${cliente.CPF}">Edição</a>
 						&nbsp;&nbsp;&nbsp;&nbsp; <a
 						href="/<%= contextPath%>/clientes/remocao?CPF=${cliente.CPF}"
