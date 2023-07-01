@@ -41,11 +41,11 @@
         <td><input type="text" id="telefone" name="telefone" required
             value="${cliente.telefone}" /></td>
     </tr>
-    <tr>
-        <td><label for="data_nascimento">Data de nascimento</label></td>
-        <td><input type="text" id="data_nascimento" name="data_nascimento" required
-            value="${cliente.data_nascimento}" /></td>
-    </tr>
+		<tr>
+		<td><label for="data_nascimento">Data de Nascimento</label></td>
+		<td><input type="text" id="data_nascimento" name="data_nascimento" required
+			value="${cliente.getDataNascimento()}" /></td>
+	</tr>
 	<tr>
         <td><label for="senha">Senha de Usuário</label></td>
         <td><input type="text" id="senha" name="senha" required

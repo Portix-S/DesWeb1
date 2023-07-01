@@ -15,6 +15,16 @@ public class Cliente {
         this.CPF = CPF;
     }   
 
+    public Cliente(String CPF, String sexo, String email, String nome, String senha,String telefone) {
+        this.CPF = CPF;
+        this.sexo = sexo;
+        this.email = email;
+        this.nome = nome;
+        this.senha = senha;
+        this.telefone = telefone;
+        this.papel = "cliente";
+    }
+
     public Cliente(String CPF, String sexo, String email, String nome, String senha,String telefone, String data_nascimento) {
         this.CPF = CPF;
         this.sexo = sexo;
@@ -83,7 +93,7 @@ public class Cliente {
     public void getDataNascimento(String data_nascimento) {
         this.data_nascimento = data_nascimento;
     }
-
+    
     public String getPapel()
     {
         return papel;
