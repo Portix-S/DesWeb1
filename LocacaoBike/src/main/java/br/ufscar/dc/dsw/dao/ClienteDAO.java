@@ -9,8 +9,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.ufscar.dc.dsw.domain.Cliente;
+import br.ufscar.dc.dsw.domain.Usuario;
+import br.ufscar.dc.dsw.dao.UsuarioDAO;
 
 public class ClienteDAO extends GenericDAO {
+
+    // private UsuarioDAO dao;
+
+    // public void init() {
+    //     dao = new UsuarioDAO();
+    // }
 
     public void insert(Cliente cliente) {
         String sql = "INSERT INTO CLIENTE (CPF, sexo, email, nome, senha, telefone, data_nascimento, papel) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
@@ -28,11 +36,17 @@ public class ClienteDAO extends GenericDAO {
             statement.setString(6, cliente.getTelefone());
             statement.setString(7, cliente.getDataNascimento());
             statement.setString(8, cliente.getPapel());
+
+            Usuario usuario = new Usuario(cliente.getNome(), cliente.getEmail(), cliente.getSenha(), cliente.getPapel());
+            //dao.insert(usuario);
+
             statement.executeUpdate();
 
             statement.close();
             conn.close();
         } catch (SQLException e) {
+            System.out.println(e);
+            System.out.println("Erro ao inserir cliente");
             throw new RuntimeException(e);
         }
     }
@@ -55,6 +69,7 @@ public class ClienteDAO extends GenericDAO {
                 String senha = resultSet.getString("senha");
                 String telefone = resultSet.getString("telefone");
                 String data_nascimento = resultSet.getString("data_nascimento");
+                String papel = resultSet.getString("papel");
                 Cliente cliente = new Cliente(CPF, sexo, email, nome, senha, telefone, data_nascimento);
                 listaClientes.add(cliente);
             }
@@ -69,11 +84,12 @@ public class ClienteDAO extends GenericDAO {
     }
 
     public void delete(Cliente cliente) {
-        String sql = "DELETE FROM CLIENTES where CPF = ?";
+        String sql = "DELETE FROM CLIENTE where CPF = ?";
 
         try {
             Connection conn = this.getConnection();
             PreparedStatement statement = conn.prepareStatement(sql);
+            //dao.delete(cliente.getEmail());
 
             statement.setString(1, cliente.getCPF());
             statement.executeUpdate();
@@ -81,6 +97,8 @@ public class ClienteDAO extends GenericDAO {
             statement.close();
             conn.close();
         } catch (SQLException e) {
+            System.out.println(e);
+            System.out.println("Erro ao remover cliente");
             throw new RuntimeException(e);
         }
     }
@@ -92,17 +110,24 @@ public class ClienteDAO extends GenericDAO {
             Connection conn = this.getConnection();
             PreparedStatement statement = conn.prepareStatement(sql);
 
-            statement.setString(1, cliente.getSexo());
-            statement.setString(2, cliente.getEmail());
-            statement.setString(3, cliente.getNome());
-            statement.setString(5, cliente.getTelefone());
-            statement.setString(6, cliente.getDataNascimento());
-            statement.setString(8, cliente.getCPF());
+            statement.setString(1, cliente.getCPF());
+            statement.setString(2, cliente.getSexo());
+            statement.setString(3, cliente.getEmail());
+            statement.setString(4, cliente.getNome());
+            statement.setString(5, cliente.getSenha());
+            statement.setString(6, cliente.getTelefone());
+            statement.setString(7, cliente.getDataNascimento());
+            statement.setString(8, cliente.getPapel());
+
+            //Usuario usuario = new Usuario(cliente.getNome(), cliente.getEmail(), cliente.getSenha(), cliente.getPapel());
+            //dao.update(usuario);
             statement.executeUpdate();
 
             statement.close();
             conn.close();
         } catch (SQLException e) {
+            System.out.println(e);
+            System.out.println("Erro ao atualizar cliente");
             throw new RuntimeException(e);
         }
     }

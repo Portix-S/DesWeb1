@@ -1,7 +1,9 @@
 package br.ufscar.dc.dsw.controller;
 
 import br.ufscar.dc.dsw.dao.ClienteDAO;
+import br.ufscar.dc.dsw.dao.UsuarioDAO;
 import br.ufscar.dc.dsw.domain.Cliente;
+import br.ufscar.dc.dsw.domain.Usuario;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
@@ -18,10 +20,12 @@ public class ClienteController extends HttpServlet {
 
     private static final Long serialVersionUID = 1L; 
     private ClienteDAO dao;
+    private UsuarioDAO usuarioDao;
 
     @Override
     public void init() {
         dao = new ClienteDAO();
+        usuarioDao = new UsuarioDAO();
     }
 
     @Override
@@ -92,8 +96,9 @@ public class ClienteController extends HttpServlet {
         String senha = request.getParameter("senha");
         String telefone = request.getParameter("telefone");
         String data_nascimento = request.getParameter("data_nascimento");
-        
-        Cliente cliente = new Cliente(CPF, sexo, email, nome, senha, telefone, data_nascimento);
+        Usuario usuario = new Usuario(nome, email, senha, "cliente");
+        usuarioDao.insert(usuario);
+        Cliente cliente = new Cliente(CPF, sexo, email, nome, senha, telefone, data_nascimento, "cliente");
         dao.insert(cliente);
         response.sendRedirect("lista");
     }
@@ -108,17 +113,20 @@ public class ClienteController extends HttpServlet {
         String senha = request.getParameter("senha");
         String telefone = request.getParameter("telefone");
         String data_nascimento = request.getParameter("data_nascimento");
-        
-        Cliente cliente = new Cliente(CPF, sexo, email, nome, senha, telefone, data_nascimento);
+        String papel = request.getParameter("papel");
+        Usuario usuario = new Usuario(nome, email, senha, papel);
+        usuarioDao.update(usuario);
+        Cliente cliente = new Cliente(CPF, sexo, email, nome, senha, telefone, data_nascimento, papel);
         dao.update(cliente);
         response.sendRedirect("lista");
     }
 
     private void remove(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String CPF = request.getParameter("CPF");
-
+        String email = request.getParameter("email");
         Cliente cliente = new Cliente(CPF);
         dao.delete(cliente);
+        usuarioDao.delete(email);
         response.sendRedirect("lista");
     }
 }

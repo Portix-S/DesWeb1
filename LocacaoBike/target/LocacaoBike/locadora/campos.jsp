@@ -26,20 +26,21 @@
    		<td><input type="text" id="cidade" name="cidade" size="45" required
    			value="${locadora.cidade}" /></td>
    	</tr>
-   	<tr>
-   		<td><label for="email">Email</label></td>
-   		<td><input type="text" id="email" name="email" size="5" required
-   			value="${locadora.email}" /></td>
-   	</tr>
+   	
    	<tr>
    		<td><label for="nome">Nome</label></td>
    		<td><input type="text" id="nome" name="nome" required
    			value="${locadora.nome}" /></td>
    	</tr>
+	   <tr>
+		<td><label for="email">Email</label></td>
+		<td><input type="text" id="email" name="email" size="5" required
+			value="${locadora.email}" /></td>
+	</tr>
 	<tr>
         <td><label for="senha">Senha de Usuário</label></td>
         <td><input type="text" id="senha" name="senha" required
-            value="${cliente.senha}" /></td>
+            value="${locadora.senha}" /></td>
     </tr>
    	<tr>
    		<td colspan="2" align="center"><input type="submit" value="Salva" /></td>
