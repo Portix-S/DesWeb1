@@ -1,12 +1,9 @@
 package br.ufscar.dc.dsw.domain;
+import br.ufscar.dc.dsw.domain.Usuario;
 
-public class Cliente {
-
+public class Cliente extends Usuario{
     private String CPF;
     private String sexo;
-    private String email;
-    private String nome;
-    private String senha;
     private String telefone;
     private String data_nascimento;
     private String papel;
@@ -26,14 +23,19 @@ public class Cliente {
     }
 
     public Cliente(String CPF, String sexo, String email, String nome, String senha,String telefone, String data_nascimento) {
+        super(nome, email, senha, "cliente");
         this.CPF = CPF;
         this.sexo = sexo;
-        this.email = email;
-        this.nome = nome;
-        this.senha = senha;
         this.telefone = telefone;
         this.data_nascimento = data_nascimento;
-        this.papel = "cliente";
+    }
+
+    public Cliente(String CPF, String sexo, String email, String nome, String senha,String telefone, String data_nascimento, String papel) {
+        super(nome, email, senha, papel);
+        this.CPF = CPF;
+        this.sexo = sexo;
+        this.telefone = telefone;
+        this.data_nascimento = data_nascimento;
     }
 
     public String getCPF() {
@@ -50,32 +52,6 @@ public class Cliente {
 
     public void setSexo(String sexo) {
         this.sexo = sexo;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getSenha()
-    {
-        return senha;
-    }
-
-    public void setSenha(String senha)
-    {
-        this.senha = senha;
     }
 
     public String getTelefone() {

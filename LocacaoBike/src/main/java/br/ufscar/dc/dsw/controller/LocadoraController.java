@@ -1,7 +1,9 @@
 package br.ufscar.dc.dsw.controller;
 
 import br.ufscar.dc.dsw.dao.LocadoraDAO;
+import br.ufscar.dc.dsw.dao.UsuarioDAO;
 import br.ufscar.dc.dsw.domain.Locadora;
+import br.ufscar.dc.dsw.domain.Usuario;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
@@ -18,10 +20,12 @@ public class LocadoraController extends HttpServlet {
 
     private static final Long serialVersionUID = 1L; 
     private LocadoraDAO dao;
+    private UsuarioDAO usuarioDao;
 
     @Override
     public void init() {
         dao = new LocadoraDAO();
+        usuarioDao = new UsuarioDAO();
     }
 
     @Override
@@ -90,8 +94,9 @@ public class LocadoraController extends HttpServlet {
         String email = request.getParameter("email");
         String nome = request.getParameter("nome");
         String senha = request.getParameter("senha");
-        
-        Locadora locadora = new Locadora(cnpj, cidade, email, nome, senha); // Alterar
+        Usuario usuario = new Usuario(nome, email, senha, "locadora");
+        usuarioDao.insert(usuario);
+        Locadora locadora = new Locadora(cnpj, cidade, email, nome, senha, "locadora"); // Alterar
         dao.insert(locadora);
         response.sendRedirect("lista");
     }
@@ -104,17 +109,20 @@ public class LocadoraController extends HttpServlet {
         String email = request.getParameter("email");
         String nome = request.getParameter("nome");
         String senha = request.getParameter("senha");
-
-        Locadora locadora = new Locadora(CNPJ, cidade, email, nome, senha);
+        String papel = request.getParameter("papel");
+        Usuario usuario = new Usuario(nome, email, senha, papel);
+        usuarioDao.update(usuario);
+        Locadora locadora = new Locadora(CNPJ, cidade, email, nome, senha, papel);
         dao.update(locadora);
         response.sendRedirect("lista");
     }
 
     private void remove(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String CNPJ = request.getParameter("CNPJ");
-
+        String email = request.getParameter("email");
         Locadora locadora = new Locadora(CNPJ);
         dao.delete(locadora);
+        usuarioDao.delete(email);
         response.sendRedirect("lista");
     }
 }
