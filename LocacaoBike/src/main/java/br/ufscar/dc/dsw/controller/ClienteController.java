@@ -114,6 +114,7 @@ public class ClienteController extends HttpServlet {
         String telefone = request.getParameter("telefone");
         String data_nascimento = request.getParameter("data_nascimento");
         String papel = request.getParameter("papel");
+
         Cliente cliente = new Cliente(CPF, sexo, email, nome, senha, telefone, data_nascimento, "cliente");
         dao.update(cliente);
 

@@ -41,9 +41,9 @@
                     <td>${cliente.getTelefone()}</td>
 					<td>${cliente.getDataNascimento()}</td>
 					<td>${cliente.getPapel()}</td>
-					<td><a href="/<%= contextPath%>/clientes/edicao?CPF=${cliente.CPF}">Edição</a>
+					<td><a href="/<%= contextPath%>/clientes/edicao?CPF=${cliente.getCPF()}">Edição</a>
 						&nbsp;&nbsp;&nbsp;&nbsp; <a
-						href="/<%= contextPath%>/clientes/remocao?CPF=${cliente.CPF}"
+						href="/<%= contextPath%>/clientes/remocao?CPF=${cliente.getCPF()}"
 						onclick="return confirm('Tem certeza de que deseja excluir este item?');">
 							Remoção </a></td>
 				</tr>

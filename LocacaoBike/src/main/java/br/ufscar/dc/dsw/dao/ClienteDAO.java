@@ -38,7 +38,6 @@ public class ClienteDAO extends GenericDAO {
             statement.setString(8, cliente.getPapel());
 
             Usuario usuario = new Usuario(cliente.getNome(), cliente.getEmail(), cliente.getSenha(), cliente.getPapel());
-            //dao.insert(usuario);
 
             statement.executeUpdate();
 
@@ -109,25 +108,21 @@ public class ClienteDAO extends GenericDAO {
         try {
             Connection conn = this.getConnection();
             PreparedStatement statement = conn.prepareStatement(sql);
-            System.out.println("Atualizando cliente");
 
-            statement.setString(1, cliente.getCPF());
-            statement.setString(2, cliente.getSexo());
-            statement.setString(3, cliente.getEmail());
-            statement.setString(4, cliente.getNome());
-            statement.setString(5, cliente.getSenha());
-            statement.setString(6, cliente.getTelefone());
-            statement.setString(7, cliente.getDataNascimento());
-            statement.setString(8, cliente.getPapel());
+            statement.setString(1, cliente.getSexo());
+            statement.setString(2, cliente.getEmail());
+            statement.setString(3, cliente.getNome());
+            statement.setString(4, cliente.getSenha());
+            statement.setString(5, cliente.getTelefone());
+            statement.setString(6, cliente.getDataNascimento());
+            statement.setString(7, cliente.getPapel());
+            statement.setString(8, cliente.getCPF());
 
-            //Usuario usuario = new Usuario(cliente.getNome(), cliente.getEmail(), cliente.getSenha(), cliente.getPapel());
-            //dao.update(usuario);
+            
             statement.executeUpdate();
-
             statement.close();
             conn.close();
-            System.out.println("Atualizou cliente");
-
+            
         } catch (SQLException e) {
             System.out.println(e);
             System.out.println("Erro ao atualizar cliente");

@@ -4,9 +4,9 @@ use LocacaoBike;
 
 CREATE TABLE USUARIO(nome varchar(256), email varchar(256) PRIMARY KEY, senha varchar(256), papel varchar(256));
 
-CREATE TABLE CLIENTE (CPF varchar(11) PRIMARY KEY, sexo varchar(256) NOT NULL, email varchar(256) NOT NULL, nome varchar(256) NOT NULL, senha varchar(256) NOT NULL, telefone varchar(256) NOT NULL, data_nascimento varchar(11) NOT NULL, papel varchar(256) NOT NULL, FOREIGN KEY(email) REFERENCES USUARIO(email));
+CREATE TABLE CLIENTE (CPF varchar(11) PRIMARY KEY, sexo varchar(256) NOT NULL, email varchar(256) NOT NULL, nome varchar(256) NOT NULL, senha varchar(256) NOT NULL, telefone varchar(256) NOT NULL, data_nascimento varchar(11) NOT NULL, papel varchar(256) NOT NULL);
 
-CREATE TABLE LOCADORA (CNPJ varchar(14) PRIMARY KEY, cidade varchar(256) NOT NULL, email varchar(256) NOT NULL, nome varchar(256) NOT NULL, senha varchar(256) NOT NULL, papel varchar(256) NOT NULL, FOREIGN KEY(email) REFERENCES USUARIO(email));
+CREATE TABLE LOCADORA (CNPJ varchar(14) PRIMARY KEY, cidade varchar(256) NOT NULL, email varchar(256) NOT NULL, nome varchar(256) NOT NULL, senha varchar(256) NOT NULL, papel varchar(256) NOT NULL);
 
 CREATE TABLE LOCACAO (CPF varchar(11), CNPJ varchar(14), data_locacao datetime NOT NULL, FOREIGN KEY (CPF) REFERENCES CLIENTE(CPF), FOREIGN KEY (CNPJ) REFERENCES LOCADORA(CNPJ));
 

@@ -63,11 +63,9 @@ public class UsuarioDAO extends GenericDAO {
             PreparedStatement statement = conn.prepareStatement(sql);
             statement.setString(1, email);
             System.out.println(email);
-            System.out.println("Deletando usuario");
             statement.executeUpdate();
             statement.close();
             conn.close();
-            System.out.println("usuario Deletado");
         } catch (SQLException e) {
             System.out.println(e);
             System.out.println("Erro ao deletar usuario");
@@ -82,9 +80,9 @@ public class UsuarioDAO extends GenericDAO {
             Connection conn = this.getConnection();
             PreparedStatement statement = conn.prepareStatement(sql);
             statement.setString(1, usuario.getNome());
-            statement.setString(2, usuario.getEmail());
-            statement.setString(3, usuario.getSenha());
-            statement.setString(4, usuario.getPapel());
+            statement.setString(2, usuario.getSenha());
+            statement.setString(3, usuario.getPapel());
+            statement.setString(4, usuario.getEmail());
             statement.executeUpdate();
             statement.close();
             conn.close();

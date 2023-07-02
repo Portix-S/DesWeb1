@@ -111,12 +111,12 @@ public class LocadoraDAO extends GenericDAO {
             Connection conn = this.getConnection();
             PreparedStatement statement = conn.prepareStatement(sql);
             
-            statement.setString(1, locadora.getCNPJ());
-            statement.setString(2, locadora.getCidade());
-            statement.setString(3, locadora.getEmail());
-            statement.setString(4, locadora.getNome());
-            statement.setString(5, locadora.getSenha());
-            statement.setString(6, locadora.getPapel());
+            statement.setString(1, locadora.getCidade());
+            statement.setString(2, locadora.getEmail());
+            statement.setString(3, locadora.getNome());
+            statement.setString(4, locadora.getSenha());
+            statement.setString(5, locadora.getPapel());
+            statement.setString(6, locadora.getCNPJ());
 
             statement.executeUpdate();
             statement.close();
