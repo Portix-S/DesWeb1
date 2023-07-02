@@ -8,7 +8,7 @@ CREATE TABLE CLIENTE (CPF varchar(11) PRIMARY KEY, sexo varchar(256) NOT NULL, e
 
 CREATE TABLE LOCADORA (CNPJ varchar(14) PRIMARY KEY, cidade varchar(256) NOT NULL, email varchar(256) NOT NULL, nome varchar(256) NOT NULL, senha varchar(256) NOT NULL, papel varchar(256) NOT NULL);
 
-CREATE TABLE LOCACAO (CPF varchar(11), CNPJ varchar(14), data_locacao datetime NOT NULL, FOREIGN KEY (CPF) REFERENCES CLIENTE(CPF), FOREIGN KEY (CNPJ) REFERENCES LOCADORA(CNPJ));
+CREATE TABLE LOCACAO (id BIGINT NOT NULL auto_increment PRIMARY KEY, CPF varchar(11), CNPJ varchar(14), data_locacao varchar(256) NOT NULL, hora_locacao varchar(256) NOT NULL);
 
 INSERT INTO USUARIO (nome, email, senha, papel)
 VALUES

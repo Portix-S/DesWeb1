@@ -6,21 +6,10 @@ public class Cliente extends Usuario{
     private String sexo;
     private String telefone;
     private String data_nascimento;
-    private String papel;
 
     public Cliente(String CPF) {
         this.CPF = CPF;
     }   
-
-    public Cliente(String CPF, String sexo, String email, String nome, String senha,String telefone) {
-        this.CPF = CPF;
-        this.sexo = sexo;
-        this.email = email;
-        this.nome = nome;
-        this.senha = senha;
-        this.telefone = telefone;
-        this.papel = "cliente";
-    }
 
     public Cliente(String CPF, String sexo, String email, String nome, String senha,String telefone, String data_nascimento) {
         super(nome, email, senha, "cliente");
@@ -68,15 +57,5 @@ public class Cliente extends Usuario{
 
     public void getDataNascimento(String data_nascimento) {
         this.data_nascimento = data_nascimento;
-    }
-    
-    public String getPapel()
-    {
-        return papel;
-    }
-
-    public void setPapel(String papel)
-    {
-        this.papel = papel;
     }
 }

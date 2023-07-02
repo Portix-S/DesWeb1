@@ -102,7 +102,7 @@ public class LocadoraDAO extends GenericDAO {
     }
 
     public void update(Locadora locadora) {
-        String sql = "UPDATE LOCADORA SET cidade = ?, email = ?, nome = ?, senha = ?, papel = ? WHERE CNPJ = ?";
+        String sql = "UPDATE LOCADORA SET cidade = ?, email = ?, nome = ?, senha = ? WHERE CNPJ = ?";
 
         try {
             //Usuario usuario = new Usuario(locadora.getNome(), locadora.getEmail(), locadora.getSenha(), locadora.getPapel());
@@ -115,8 +115,7 @@ public class LocadoraDAO extends GenericDAO {
             statement.setString(2, locadora.getEmail());
             statement.setString(3, locadora.getNome());
             statement.setString(4, locadora.getSenha());
-            statement.setString(5, locadora.getPapel());
-            statement.setString(6, locadora.getCNPJ());
+            statement.setString(5, locadora.getCNPJ());
 
             statement.executeUpdate();
             statement.close();

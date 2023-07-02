@@ -17,9 +17,7 @@
    		<input type="hidden" name="CPF" value="${cliente.getCPF()}" />
    	</c:if>
    	<tr>
-   		<td><label for="CPF">CPF</label></td>
-   		<td><input type="text" id="CPF" name="CPF" size="45"
-   			required value="${cliente.getCPF()}" /></td>
+   		<td colspan="2" align="center"><label for="CPF">CPF ${cliente.getCPF()}</label></td>
    	</tr>
    	<tr>
    		<td><label for="sexo">Sexo</label></td>
@@ -45,6 +43,12 @@
 		<td><label for="data_nascimento">Data de Nascimento</label></td>
 		<td><input type="text" id="data_nascimento" name="data_nascimento" required
 			value="${cliente.getDataNascimento()}" /></td>
+	</tr>
+	</tr>
+		<tr>
+		<td><label for="papel">Papel do Usuário</label></td>
+		<td><input type="text" id="papel" name="papel" required
+		value="${cliente.getPapel()}" /></td>
 	</tr>
 	<tr>
         <td><label for="senha">Senha de Usuário</label></td>

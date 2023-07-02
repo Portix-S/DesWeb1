@@ -3,19 +3,30 @@ import java.util.Date;
 
 public class Locacao {
 
+    private long id;
     private String CPF;
     private String CNPJ;
-    private Date data_locacao;
+    private String data_locacao;
+    private String horario_locacao;
 
-    public Locacao(String CPF, String CNPJ) {
-        this.CPF = CPF;
-        this.CNPJ = CNPJ;
+    public Locacao(Long id) {
+        this.id = id;
     }
 
-    public Locacao(String CPF, String CNPJ, Date data_locacao) {
+    public Locacao(Long id, String CPF, String CNPJ, String data_locacao, String horario_locacao) {
+        this.id = id;
         this.CPF = CPF;
         this.CNPJ = CNPJ;
         this.data_locacao = data_locacao;
+        this.horario_locacao = horario_locacao;
+    }
+
+    public Long getID() {
+        return id;
+    }
+
+    public Long setID(Long id) {
+        this.id = id;
     }
 
     public String getCPF() {
@@ -34,11 +45,19 @@ public class Locacao {
         this.CNPJ = cnpj;
     }
 
-    public Date getDataLocacao() {
+    public String getDataLocacao() {
         return data_locacao;
     }
 
-    public void setDataLocacao(int ano, int mes, int dia) {
-        this.data_locacao = new Date(ano, mes, dia);
+    public void setDataLocacao(String data_locacao) {
+        this.data_locacao = data_locacao;
+    }
+
+    public String getHorarioLocacao() {
+        return horario_locacao;
+    }
+
+    public void setHorarioLocacao(String horario_locacao) {
+        this.horario_locacao = horario_locacao;
     }
 }

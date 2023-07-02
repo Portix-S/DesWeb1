@@ -33,7 +33,7 @@ public class UsuarioDAO extends GenericDAO {
     
     public List<Usuario> getAll() {   
         List<Usuario> listaUsuarios = new ArrayList<>();
-        String sql = "SELECT * from USUARIO u";
+        String sql = "SELECT * from USUARIO";
         try {
             Connection conn = this.getConnection();
             Statement statement = conn.createStatement();

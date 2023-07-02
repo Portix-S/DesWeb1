@@ -17,9 +17,7 @@
    		<input type="hidden" name="CNPJ" value="${locadora.CNPJ}" />
    	</c:if>
    	<tr>
-   		<td><label for="CNPJ">CNPJ</label></td>
-   		<td><input type="text" id="CNPJ" name="CNPJ" size="45"
-   			required value="${locadora.CNPJ}" /></td>
+   		<td colspan="2" align="center"><label for="CNPJ">CNPJ ${locadora.CNPJ}</label></td>
    	</tr>
    	<tr>
    		<td><label for="cidade">Cidade</label></td>

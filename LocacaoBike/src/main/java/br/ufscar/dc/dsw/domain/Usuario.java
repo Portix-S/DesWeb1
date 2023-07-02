@@ -5,7 +5,7 @@ public class Usuario {
 	//precisa duplicar nome/email/senha, apenas nos gets pega do Usuário direto
 	// Talvez isso facilite os métodos de atualização/inserção/remoção
 	//de usuários
-	// Usar email(login) como chave primária?
+	// Usar email(login) como chave primária? Rafa - Acho que sim
 	private Long id;
 	private String nome;
 	private String email;

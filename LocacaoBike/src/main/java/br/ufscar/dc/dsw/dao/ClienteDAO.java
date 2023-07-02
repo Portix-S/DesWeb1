@@ -36,8 +36,9 @@ public class ClienteDAO extends GenericDAO {
             statement.setString(6, cliente.getTelefone());
             statement.setString(7, cliente.getDataNascimento());
             statement.setString(8, cliente.getPapel());
+            System.out.println(cliente.getPapel());
 
-            Usuario usuario = new Usuario(cliente.getNome(), cliente.getEmail(), cliente.getSenha(), cliente.getPapel());
+            //Usuario usuario = new Usuario(cliente.getNome(), cliente.getEmail(), cliente.getSenha(), cliente.getPapel());
 
             statement.executeUpdate();
 
