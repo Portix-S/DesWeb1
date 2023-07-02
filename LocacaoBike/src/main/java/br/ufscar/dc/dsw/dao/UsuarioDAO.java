@@ -39,12 +39,11 @@ public class UsuarioDAO extends GenericDAO {
             Statement statement = conn.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
             while (resultSet.next()) {
-                long id = resultSet.getLong("id");
                 String nome = resultSet.getString("nome");
                 String email = resultSet.getString("email");
                 String senha = resultSet.getString("senha");
                 String papel = resultSet.getString("papel");
-                Usuario usuario = new Usuario(id, nome, email, senha, papel);
+                Usuario usuario = new Usuario(nome, email, senha, papel);
                 listaUsuarios.add(usuario);
             }
             resultSet.close();
@@ -126,11 +125,10 @@ public class UsuarioDAO extends GenericDAO {
             statement.setString(1, email);
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
-            	Long id = resultSet.getLong("id");
                 String nome = resultSet.getString("nome");
                 String senha = resultSet.getString("senha");
                 String papel = resultSet.getString("papel");
-                usuario = new Usuario(id, nome, email, senha, papel);
+                usuario = new Usuario(nome, email, senha, papel);
             }
             resultSet.close();
             statement.close();
