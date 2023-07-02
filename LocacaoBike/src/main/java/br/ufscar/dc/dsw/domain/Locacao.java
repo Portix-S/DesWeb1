@@ -3,7 +3,7 @@ import java.util.Date;
 
 public class Locacao {
 
-    private long id;
+    private Long id;
     private String CPF;
     private String CNPJ;
     private String data_locacao;
@@ -25,7 +25,7 @@ public class Locacao {
         return id;
     }
 
-    public Long setID(Long id) {
+    public void setID(Long id) {
         this.id = id;
     }
 

@@ -1,11 +1,7 @@
 package br.ufscar.dc.dsw.controller;
 
-import br.ufscar.dc.dsw.dao.ClienteDAO;
-import br.ufscar.dc.dsw.dao.LocadoraDAO;
-import br.ufscar.dc.dsw.dao.LocacoesDAO;
-import br.ufscar.dc.dsw.domain.Cliente;
-import br.ufscar.dc.dsw.domain.Locadora;
-import br.ufscar.dc.dsw.domain.Locacoes;
+import br.ufscar.dc.dsw.dao.LocacaoDAO;
+import br.ufscar.dc.dsw.domain.Locacao;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
@@ -20,14 +16,12 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(urlPatterns = "/locacoes/*")
 public class LocacaoController extends HttpServlet {
 
-    private static final Long serialVersionUID = 1L; 
-    private ClienteDAO cliente_dao;
-    private LocadoraDAO locadora_dao;
+    private static final Long serialVersionUID = 1L;
     private LocacaoDAO locacao_dao;
 
     @Override
     public void init() {
-        locacao_dao = new LocacaoDao();
+        locacao_dao = new LocacaoDAO();
     }
 
     @Override
@@ -69,7 +63,7 @@ public class LocacaoController extends HttpServlet {
     }
 
     private void lista(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Locacoes> listaLocacoes = locacao.getAll();
+        List<Locacao> listaLocacoes = locacao_dao.getAll();
         request.setAttribute("listaLocacoes", listaLocacoes);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/locacao/lista.jsp");
         dispatcher.forward(request, response);
@@ -81,9 +75,8 @@ public class LocacaoController extends HttpServlet {
     }
     
     private void apresentaFormEdicao(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String CPF = request.getParameter("CPF");
-        String CNPJ = request.getParameter("CNPJ");
-        Locacao locacao = locacao_dao.get(CPF, CNPJ);
+        Long id = Long.parseLong(request.getParameter("id"));
+        Locacao locacao = locacao_dao.get(id);
         request.setAttribute("locacao", locacao);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/locacao/formulario.jsp");
         dispatcher.forward(request, response);
@@ -92,7 +85,7 @@ public class LocacaoController extends HttpServlet {
     private void insere(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         
-        Long id = request.getParameter("id");
+        Long id = Long.parseLong(request.getParameter("id"));
         String CPF = request.getParameter("CPF");
         String CNPJ = request.getParameter("CNPJ");
         String data_locacao = request.getParameter("data_locacao");
@@ -105,7 +98,7 @@ public class LocacaoController extends HttpServlet {
     private void atualize(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         request.setCharacterEncoding("UTF-8");
-        Long id = request.getParameter("id");
+        Long id = Long.parseLong(request.getParameter("id"));
         String CPF = request.getParameter("CPF");
         String CNPJ = request.getParameter("CNPJ");
         String data_locacao = request.getParameter("data_locacao");
@@ -119,8 +112,8 @@ public class LocacaoController extends HttpServlet {
 
     private void remove(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
-        Long id = request.getParameter("id");
-        Locacao locacao = dao.get(id);
+        Long id = Long.parseLong(request.getParameter("id"));
+        Locacao locacao = locacao_dao.get(id);
 
         locacao_dao.delete(locacao);
 
