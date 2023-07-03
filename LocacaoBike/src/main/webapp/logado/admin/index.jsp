@@ -11,7 +11,7 @@
         <title><fmt:message key="greeting20" bundle="${bundle}"/></title>
     </head>
     <body>
-        <h1><fmt:message key="greeting23" bundle="${bundle}"/>/h1>
+        <h1><fmt:message key="greeting23" bundle="${bundle}"/></h1>
         <p><fmt:message key="greeting14" bundle="${bundle}"/> ${sessionScope.usuarioLogado.nome}</p>
         <body>
             <a href="${pageContext.request.contextPath}/locadoras"><fmt:message key="greeting21" bundle="${bundle}"/></a>

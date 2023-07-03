@@ -8,7 +8,7 @@
 
 <html>
 <head>
-<title><fmt:message key="greeting25" bundle="${bundle}"/></title>
+<title>Locacao Virtual</title>
 </head>
 
 <script>

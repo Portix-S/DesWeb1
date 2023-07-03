@@ -19,6 +19,11 @@ import java.util.ResourceBundle;;
 public class IndexController extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
+	ResourceBundle bundle = ResourceBundle.getBundle("messages", new Locale("pt", "BR"));
+	String Erro1 = bundle.getString("Erro1");
+	String Erro2 = bundle.getString("Erro2");
+	String Erro3 = bundle.getString("Erro3");
+	String Erro4 = bundle.getString("Erro4");
 
 	
     
@@ -31,7 +36,7 @@ public class IndexController extends HttpServlet {
 		String country = acceptLanguage.split("-")[1];
 		
 
-		request.setAttribute("javax.servlet.jsp.jstl.fmt.locale", new Locale("us", "EN"));
+		request.setAttribute("javax.servlet.jsp.jstl.fmt.locale", new Locale(lang, country));
 		doGet(request, response);
     }
 	
@@ -41,10 +46,10 @@ public class IndexController extends HttpServlet {
 			String email = request.getParameter("email");
 			String senha = request.getParameter("senha");
 			if (email == null || email.isEmpty()) {
-				erros.add("email não informado!");
+				erros.add(Erro1);
 			}
 			if (senha == null || senha.isEmpty()) {
-				erros.add("Senha não informada!");
+				erros.add(Erro4);
 			}
 			if (!erros.isExisteErros()) {
 				UsuarioDAO dao = new UsuarioDAO();
@@ -62,10 +67,11 @@ public class IndexController extends HttpServlet {
                         }
 						return;
 					} else {
-						erros.add("Senha inválida!");
+						erros.add(Erro2);
 					}
 				} else {
-					erros.add("Usuário não encontrado!");
+					
+					erros.add(Erro3);
 				}
 			}
 		}

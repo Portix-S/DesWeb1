@@ -9,7 +9,7 @@
 	<caption>
    		<c:choose>
    			<c:when test="${locadora != null}">
-				<fmt:message key="greeting29" bundle="${bundle}"/>
+				Edicao
                            </c:when>
    			<c:otherwise>
 				<fmt:message key="greeting31" bundle="${bundle}"/>
