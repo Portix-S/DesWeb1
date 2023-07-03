@@ -22,6 +22,6 @@ abstract public class GenericDAO {
         
     	String url = "jdbc:mysql://localhost:3306/LocacaoBike";
     	
-        return DriverManager.getConnection(url, "root", "portix");
+        return DriverManager.getConnection(url, "root", "Pietro");
     }
 }

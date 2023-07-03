@@ -14,6 +14,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Locale;
+import java.util.ResourceBundle;;
 
 @WebServlet(urlPatterns = "/clientes/*")
 public class ClienteController extends HttpServlet {
@@ -27,9 +29,17 @@ public class ClienteController extends HttpServlet {
         dao = new ClienteDAO();
         usuarioDao = new UsuarioDAO();
     }
+    
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException {
+        String acceptLanguage = request.getHeader("Accept-Language");
+
+		String lang = acceptLanguage.split("-")[0];
+		String country = acceptLanguage.split("-")[1];
+		
+
+		request.setAttribute("javax.servlet.jsp.jstl.fmt.locale", new Locale(lang, country));
         doGet(request, response);
     }
 

@@ -18,6 +18,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Locale;
+import java.util.ResourceBundle;;
 
 @WebServlet(urlPatterns = "/locacoes/*")
 public class LocacaoController extends HttpServlet {
@@ -27,6 +29,9 @@ public class LocacaoController extends HttpServlet {
     private LocadoraDAO dao;
     private UsuarioDAO usuarioDao;
     private ClienteDAO clienteDao;
+    ResourceBundle bundle = ResourceBundle.getBundle("messages", new Locale("pt", "BR"));
+	String Erro1 = bundle.getString("Erro1");
+	
 
     @Override
     public void init() {
@@ -38,6 +43,13 @@ public class LocacaoController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException {
+        String acceptLanguage = request.getHeader("Accept-Language");
+
+		String lang = acceptLanguage.split("-")[0];
+		String country = acceptLanguage.split("-")[1];
+		
+
+		request.setAttribute("javax.servlet.jsp.jstl.fmt.locale", new Locale(lang, country));
         doGet(request, response);
     }
 
@@ -80,15 +92,15 @@ public class LocacaoController extends HttpServlet {
         Cliente cliente = clienteDao.getByEmail(usuario.getEmail());
         if(cliente != null)
         {
-            System.out.println("Recebido CPF: " + cliente.getCPF());
+            // System.out.println("Recebido CPF: " + cliente.getCPF());
             listaLocacoes = locacao_dao.getAll(cliente.getCPF());
         }
         else
         {
-            System.out.println("Passouuu");
+            // System.out.println("Passouuu");
             Locadora locadora = dao.getByEmail(usuario.getEmail());
             listaLocacoes = locacao_dao.getAllByCNPJ(locadora.getCNPJ());
-            System.out.println("Criou Lista");
+            // System.out.println("Criou Lista");
         }
         request.setAttribute("listaLocacoes", listaLocacoes);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/locacao/lista.jsp");

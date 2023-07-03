@@ -1,17 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page isELIgnored="false"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<fmt:setBundle basename="messages" var="bundle" />
 <html>
 <head>
-<title>Locacao Virtual</title>
+<title><fmt:message key="greeting25" bundle="${bundle}"/></title>
 </head>
 
 <body>
 	<div align="center">
-		<h1>Sistema de Locação</h1>
+		<h1><fmt:message key="greeting34" bundle="${bundle}"/></h1>
 		<h2>
-			<a href="lista">Voltar</a>
+			<a href="lista"><fmt:message key="greeting35" bundle="${bundle}"/></a>
 		</h2>
 	</div>
 	<div align="center">

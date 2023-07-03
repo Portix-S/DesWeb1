@@ -5,7 +5,6 @@ br/ufscar/dc/dsw/dao/LocacaoDAO.class
 br/ufscar/dc/dsw/domain/Usuario.class
 br/ufscar/dc/dsw/domain/Locadora.class
 br/ufscar/dc/dsw/controller/LocadoraLoginController.class
-br/ufscar/dc/dsw/controller/IndexController.class
 br/ufscar/dc/dsw/dao/GenericDAO.class
 br/ufscar/dc/dsw/controller/UsuarioController.class
 <<<<<<< Updated upstream
@@ -19,4 +18,3 @@ br/ufscar/dc/dsw/controller/LocadoraController.class
 br/ufscar/dc/dsw/dao/UsuarioDAO.class
 br/ufscar/dc/dsw/AcessaBD.class
 br/ufscar/dc/dsw/util/Erro.class
-br/ufscar/dc/dsw/controller/ClienteController.class
