@@ -6,11 +6,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Autorização de Usuário</title>
+        <title><fmt:message key="greeting8" bundle="${bundle}"/></title>
         <link href="${pageContext.request.contextPath}/layout.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <h1>Autorização de Usuário</h1>
+        <h1><fmt:message key="greeting8" bundle="${bundle}"/></h1>
         <c:if test="${mensagens.existeErros}">
             <div id="erro">
                 <ul>

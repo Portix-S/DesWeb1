@@ -38,6 +38,13 @@ public class LocacaoController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException {
+        String acceptLanguage = request.getHeader("Accept-Language");
+
+		String lang = acceptLanguage.split("-")[0];
+		String country = acceptLanguage.split("-")[1];
+		
+
+		request.setAttribute("javax.servlet.jsp.jstl.fmt.locale", new Locale(lang, country));
         doGet(request, response);
     }
 

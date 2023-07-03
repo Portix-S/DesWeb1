@@ -2,9 +2,13 @@
 	pageEncoding="UTF-8"%>
 <%@ page isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<fmt:setBundle basename="messages" var="bundle" />
+
 <html>
 <head>
-<title>Locação Virtual</title>
+<title><fmt:message key="greeting25" bundle="${bundle}"/></title>
 </head>
 
 <script>
@@ -46,23 +50,23 @@
 		String contextPath = request.getContextPath().replace("/", "");
 	%>
 	<div align="center">
-		<h1>Gerenciamento de Locadora</h1>
+		<h1><fmt:message key="greeting24" bundle="${bundle}"/></h1>
 		<h2>
 			<c:if test="${usuarioLogado != null }">
 				<c:if test="${usuarioLogado.getPapel() == 'cliente'}">
-					<a href="/<%=contextPath%>/loginCliente/">Menu Cliente</a>
+					<a href="/<%=contextPath%>/loginCliente/"><fmt:message key="greeting27" bundle="${bundle}"/></a>
 				</c:if>
 				<c:if test="${usuarioLogado.getPapel() == 'locadora'}">
-					<a href="${pageContext.request.contextPath}/loginLocadora/">Menu Locadora</a>
+					<a href="${pageContext.request.contextPath}/loginLocadora/"><fmt:message key="greeting13" bundle="${bundle}"/></a>
 				</c:if>
 				<c:if test="${usuarioLogado.getPapel() == 'admin'}">
-					<a href="${pageContext.request.contextPath}/logado/admin/index.jsp">Menu Admin</a>
-					<a href="${pageContext.request.contextPath}/locadoras/cadastro">Adicionar Locadora</a>
+					<a href="${pageContext.request.contextPath}/logado/admin/index.jsp"><fmt:message key="greeting26" bundle="${bundle}"/></a>
+					<a href="${pageContext.request.contextPath}/locadoras/cadastro"><fmt:message key="greeting28" bundle="${bundle}"/></a>
 				</c:if>
 				
 			</c:if>
 			<c:if test="${usuarioLogado == null}">
-					<a href="/<%=contextPath%>/pagInicial.jsp">Menu Principal</a>
+					<a href="/<%=contextPath%>/pagInicial.jsp"><fmt:message key="greeting12" bundle="${bundle}"/></a>
 			</c:if>
 		</h2>
 	</div>
@@ -72,15 +76,15 @@
 	<div align="center">
 	<input type="text" id="modelFilter" onkeyup="filterFunction()" placeholder ="Procure pela cidade">
 		<table id="cidade" border="1">
-			<caption>Lista de Locadoras</caption>
+			<caption><fmt:message key="greeting15" bundle="${bundle}"/></caption>
 			<tr>
 				<th>CNPJ</th>
-				<th>Cidade</th>
+				<th>Cidade/City</th>
 				<th>Email</th>
-				<th>Nome</th>
+				<th>Nome/Name</th>
 				<c:if test="${usuarioLogado.getPapel() == 'admin'}">
-					<th>Senha</th>
-					<th>Papel</th>
+					<th>Senha/Password</th>
+					<th>Papel/Role</th>
 				</c:if>
 			</tr>
 			<c:forEach var="locadora" items="${requestScope.listaLocadoras}">
@@ -92,14 +96,14 @@
 					<c:if test="${usuarioLogado.getPapel() == 'admin'}">
 					<td>${locadora.getSenha()}</td>
 					<td>${locadora.getPapel()}</td>
-						<td><a href="/<%= contextPath%>/locadoras/edicao?CNPJ=${locadora.CNPJ}">Edição</a>
+						<td><a href="/<%= contextPath%>/locadoras/edicao?CNPJ=${locadora.CNPJ}"><fmt:message key="greeting29" bundle="${bundle}"/></a>
 							&nbsp;&nbsp;&nbsp;&nbsp; <a
 							href="/<%= contextPath%>/locadoras/remocao?CNPJ=${locadora.CNPJ}"
 							onclick="return confirm('Tem certeza de que deseja excluir este item?');">
-								Remoção </a></td>
+							<fmt:message key="greeting37" bundle="${bundle}"/> </a></td>
 					</c:if>
 					<c:if test="${usuarioLogado.getPapel() == 'cliente'}">
-						<td><a href="/<%= contextPath%>/locacoes/cadastro?CNPJ=${locadora.getCNPJ()}&Email=${usuarioLogado.getEmail()}">Fazer Locação</a>
+						<td><a href="/<%= contextPath%>/locacoes/cadastro?CNPJ=${locadora.getCNPJ()}&Email=${usuarioLogado.getEmail()}"><fmt:message key="greeting30" bundle="${bundle}"/></a>
 					</c:if>
 
 

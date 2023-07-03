@@ -1,5 +1,10 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page isELIgnored="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<fmt:setBundle basename="messages" var="bundle" />
+
+
 <style>
     .centered-link {
         text-align: center;
@@ -17,14 +22,14 @@
         <%
         String contextPath = request.getContextPath().replace("/", "");
         %>
-    <h1 style="text-align:center;">Bem-vindo ao sistema de locação virtual de bicicletas!</h1>
-    <h3 style="text-align:center;">Listagem de todas as locadoras disponíveis para aluguel de bicicletas: </h3>
+    <h1 style="text-align:center;"><fmt:message key="greeting" bundle="${bundle}"/></h1>
+     <h3 style="text-align:center;"><fmt:message key="greeting2" bundle="${bundle}"/></h3>
     <div class="centered-link">
-    	<a href="/<%=contextPath%>/locadoras/lista">Listar Locadoras</a>
+    	<a href="/<%=contextPath%>/locadoras/lista"><fmt:message key="greeting3" bundle="${bundle}"/></a>
     </div>
-	<h3 style="text-align:center;">Realize login para acessar mais opções:</h3>
+	<h3 style="text-align:center;"><fmt:message key="greeting6" bundle="${bundle}"/></h3>
 	<div class="centered-link">
-    	<a href="login.jsp">Login</a>
+    	<a href="login.jsp"><fmt:message key="greeting7" bundle="${bundle}"/></a>
     </div>
     </body>
 </html>

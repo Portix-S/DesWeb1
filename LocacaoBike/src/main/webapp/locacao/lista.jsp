@@ -2,9 +2,13 @@
 	pageEncoding="UTF-8"%>
 <%@ page isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<fmt:setBundle basename="messages" var="bundle" />
+
 <html>
 <head>
-<title>Locação Virtual</title>
+<title><fmt:message key="greeting25" bundle="${bundle}"/></title>
 </head>
 
 <body>
@@ -21,14 +25,14 @@
 		String contextPath = request.getContextPath().replace("/", "");
 	%>
 	<div align="center">
-		<h1>Gerenciamento de Locações</h1>
+		<h1><fmt:message key="greeting38" bundle="${bundle}"/></h1>
 		<h2>
 			<c:if test="${usuarioLogado != null }">
 				<c:if test="${usuarioLogado.getPapel() == 'cliente'}">
-					<a href="/<%=contextPath%>/loginCliente/">Menu Cliente</a>
+					<a href="/<%=contextPath%>/loginCliente/"><fmt:message key="greeting27" bundle="${bundle}"/></a>
 				</c:if>
 				<c:if test="${usuarioLogado.getPapel() == 'locadora'}">
-					<a href="/<%=contextPath%>/loginLocadora/">Menu locadora</a>
+					<a href="/<%=contextPath%>/loginLocadora/"><fmt:message key="greeting13" bundle="${bundle}"/></a>
 				</c:if>
 			</c:if>
 		</h2>
@@ -38,12 +42,12 @@
 
 	<div align="center">
 		<table border="1">
-			<caption>Lista de locacao</caption>
+			<caption><fmt:message key="greeting17" bundle="${bundle}"/></caption>
 			<tr>
 				<th>CPF</th>
 				<th>CNPJ</th>
-				<th>Data Locação</th>
-				<th>Hora Locação</th>
+				<th>Data Locação/Lease date</th>
+				<th>Hora Locação/Lease time</th>
 			</tr>
 			<c:forEach var="locacao" items="${requestScope.listaLocacoes}">
 				<tr>

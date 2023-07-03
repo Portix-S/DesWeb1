@@ -1,15 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page isELIgnored="false"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<fmt:setBundle basename="messages" var="bundle" />
+
 <table border="1">
 	<caption>
    		<c:choose>
    			<c:when test="${locadora != null}">
-                               Edição
+				<fmt:message key="greeting29" bundle="${bundle}"/>
                            </c:when>
    			<c:otherwise>
-                               Cadastro
+				<fmt:message key="greeting31" bundle="${bundle}"/>
                            </c:otherwise>
    		</c:choose>
 	</caption>
@@ -29,13 +32,13 @@
         </c:otherwise>
     </c:choose>
    	<tr>
-   		<td><label for="cidade">Cidade</label></td>
+   		<td><label for="cidade">Cidade/City</label></td>
    		<td><input type="text" id="cidade" name="cidade" size="45" required
    			value="${locadora.cidade}" /></td>
    	</tr>
    	
    	<tr>
-   		<td><label for="nome">Nome</label></td>
+   		<td><label for="nome">Nome/Name</label></td>
    		<td><input type="text" id="nome" name="nome" required
    			value="${locadora.nome}" /></td>
    	</tr>
@@ -45,7 +48,7 @@
 			value="${locadora.email}" /></td>
 	</tr>
 	<tr>
-        <td><label for="senha">Senha de Usuário</label></td>
+        <td><label for="senha">Senha de Usuário/User Password</label></td>
         <td><input type="text" id="senha" name="senha" required
             value="${locadora.senha}" /></td>
     </tr>
