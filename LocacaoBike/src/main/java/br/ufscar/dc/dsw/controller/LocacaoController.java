@@ -122,10 +122,19 @@ public class LocacaoController extends HttpServlet {
         String CNPJ = request.getParameter("CNPJ");
         String data_locacao = request.getParameter("data_locacao");
         String horario_locacao = request.getParameter("horario_locacao");
-        Locacao locacao = new Locacao(CPF, CNPJ, data_locacao, horario_locacao);
-        locacao_dao.insert(locacao);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/locacoes/lista");
-        dispatcher.forward(request, response);
+        String data_horario_locacao = data_locacao + horario_locacao; 
+
+        System.out.println("Data e horario: " + data_horario_locacao);
+        if(locacao_dao.getByDataHora(CPF, CNPJ, data_horario_locacao) == null) {
+            System.out.println("Triste");
+            Locacao locacao = new Locacao(CPF, CNPJ, data_locacao, horario_locacao, data_horario_locacao);
+            locacao_dao.insert(locacao);
+        }
+        else {
+            System.out.println("Nao inseriu por repeticao de data e horario.");
+        }
+        response.sendRedirect("lista");  
+        
         //response.sendRedirect("lista");
     }
 
@@ -137,8 +146,9 @@ public class LocacaoController extends HttpServlet {
         String CNPJ = request.getParameter("CNPJ");
         String data_locacao = request.getParameter("data_locacao");
         String horario_locacao = request.getParameter("horario_locacao");
+        String data_hora_locacao = data_locacao + horario_locacao; 
 
-        Locacao locacao = new Locacao(id, CPF, CNPJ, data_locacao, horario_locacao);
+        Locacao locacao = new Locacao(id, CPF, CNPJ, data_locacao, horario_locacao, data_hora_locacao);
         locacao_dao.update(locacao);
 
         response.sendRedirect("lista");

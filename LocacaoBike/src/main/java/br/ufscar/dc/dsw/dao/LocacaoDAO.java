@@ -19,7 +19,7 @@ public class LocacaoDAO extends GenericDAO {
     // }
 
     public void insert(Locacao locacao) {
-        String sql = "INSERT INTO LOCACAO (CPF, CNPJ, data_locacao, hora_locacao) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO LOCACAO (CPF, CNPJ, data_locacao, hora_locacao, data_hora_locacao) VALUES (?, ?, ?, ?, ?)";
 
         try {
             Connection conn = this.getConnection();
@@ -30,6 +30,7 @@ public class LocacaoDAO extends GenericDAO {
             statement.setString(2, locacao.getCNPJ());
             statement.setString(3, locacao.getDataLocacao());
             statement.setString(4, locacao.getHorarioLocacao());
+            statement.setString(5, locacao.getDataHoraLocacao());
 
             statement.executeUpdate();
 
@@ -61,7 +62,8 @@ public class LocacaoDAO extends GenericDAO {
                 String CNPJ = resultSet.getString("CNPJ");
                 String data_locacao = resultSet.getString("data_locacao");
                 String hora_locacao = resultSet.getString("hora_locacao");
-                Locacao locacao = new Locacao(id, CPF, CNPJ, data_locacao, hora_locacao);
+                String data_hora_locacao = resultSet.getString("data_hora_locacao");
+                Locacao locacao = new Locacao(id, CPF, CNPJ, data_locacao, hora_locacao, data_hora_locacao);
                 listaLocacoes.add(locacao);
             }
 
@@ -94,7 +96,8 @@ public class LocacaoDAO extends GenericDAO {
                 String CPF = resultSet.getString("CPF");
                 String data_locacao = resultSet.getString("data_locacao");
                 String hora_locacao = resultSet.getString("hora_locacao");
-                Locacao locacao = new Locacao(id, CPF, CNPJ, data_locacao, hora_locacao);
+                String data_hora_locacao = resultSet.getString("data_hora_locacao");
+                Locacao locacao = new Locacao(id, CPF, CNPJ, data_locacao, hora_locacao, data_hora_locacao);
                 listaLocacoes.add(locacao);
             }
 
@@ -164,7 +167,8 @@ public class LocacaoDAO extends GenericDAO {
                 String CNPJ = resultSet.getString("CNPJ");
                 String data_locacao = resultSet.getString("data_locacao");
                 String hora_locacao = resultSet.getString("hora_locacao");
-                locacao = new Locacao(id, CPF, CNPJ, data_locacao, hora_locacao);
+                String data_hora_locacao = resultSet.getString("data_hora_locacao");
+                locacao = new Locacao(id, CPF, CNPJ, data_locacao, hora_locacao, data_hora_locacao);
             }
 
             resultSet.close();
@@ -190,14 +194,43 @@ public class LocacaoDAO extends GenericDAO {
                 String CPF = resultSet.getString("CPF");
                 Long id = resultSet.getLong("id");
                 String data_locacao = resultSet.getString("data_locacao");
-                String hora_locacao = resultSet.getString("hora_locacao");
-                locacao = new Locacao(id, CPF, CNPJ, data_locacao, hora_locacao);
+                String horario_locacao = resultSet.getString("hora_locacao");
+                String data_hora_locacao = resultSet.getString("data_hora_locacao");
+                locacao = new Locacao(id, CPF, CNPJ, data_locacao, horario_locacao, data_hora_locacao);
             }
 
             resultSet.close();
             statement.close();
             conn.close();
         } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+     return locacao;
+    }
+
+    public Locacao getByDataHora(String CPF, String CNPJ, String data_horario_locacao) {
+        Locacao locacao = null;   
+        String sql = "SELECT * from LOCACAO where CPF = ? and CNPJ = ? and data_hora_locacao = ?";
+
+        try {
+            Connection conn = this.getConnection();
+            PreparedStatement statement = conn.prepareStatement(sql);
+            
+            statement.setString(1, CPF);
+            statement.setString(2, CNPJ);
+            statement.setString(3, data_horario_locacao);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                String data_locacao = resultSet.getString("data_locacao");
+                String hora_locacao = resultSet.getString("hora_locacao");
+                locacao = new Locacao(CPF, CNPJ, data_locacao, hora_locacao, data_horario_locacao);
+            }
+
+            resultSet.close();
+            statement.close();
+            conn.close();
+        } catch (SQLException e) {
+            System.out.println("Nao esta pegando o objeto");
             throw new RuntimeException(e);
         }
      return locacao;

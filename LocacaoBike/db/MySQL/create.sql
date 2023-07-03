@@ -8,34 +8,38 @@ CREATE TABLE CLIENTE (CPF varchar(11) PRIMARY KEY, sexo varchar(256) NOT NULL, e
 
 CREATE TABLE LOCADORA (CNPJ varchar(14) PRIMARY KEY, cidade varchar(256) NOT NULL, email varchar(256) NOT NULL, nome varchar(256) NOT NULL, senha varchar(256) NOT NULL, papel varchar(256) NOT NULL);
 
-CREATE TABLE LOCACAO (id BIGINT NOT NULL auto_increment PRIMARY KEY, CPF varchar(11), CNPJ varchar(14), data_locacao varchar(256) NOT NULL, hora_locacao varchar(256) NOT NULL);
+CREATE TABLE LOCACAO (id BIGINT NOT NULL auto_increment PRIMARY KEY, CPF varchar(11), CNPJ varchar(14), data_locacao varchar(256) NOT NULL, hora_locacao varchar(256) NOT NULL, data_hora_locacao varchar(256) NOT NULL UNIQUE);
 
 INSERT INTO USUARIO (nome, email, senha, papel)
 VALUES
   ("admin", "admin", "admin", "admin"),
-  ("admin", "dui.quis@outlook.com", "admin", "admin"),
-  ("admin", "nostra.per.inceptos@protonmail.net", "admin", "admin"),
-  ("admin", "purus@google.edu", "admin", "admin"),
-  ("admin", "at.egestas.a@protonmail.edu", "admin", "admin"),
-  ("admin", "enim@icloud.edu", "admin", "admin"),
-  ("admin", "magnis.dis@outlook.com", "admin", "admin"),
-  ("admin", "nulla@yahoo.couk", "admin", "admin"),
-  ("admin", "duis@outlook.org", "admin", "admin"),
-  ("admin", "venenatis@protonmail.ca", "admin", "admin"),
-  ("admin", "suspendisse@icloud.org", "admin", "admin"),
-  ("admin", "varius.orci@aol.edu", "admin", "admin"),
-  ("admin", "augue.eu.tellus@aol.ca", "admin", "admin"),
-  ("admin", "morbi@google.org", "admin", "admin"),
-  ("admin", "aliquam@icloud.org", "admin", "admin"),
-  ("admin", "etiam.vestibulum.massa@aol.couk", "admin", "admin"),
-  ("admin", "tempor@hotmail.org", "admin", "admin"),
-  ("admin", "fusce.feugiat@hotmail.net", "admin", "admin"),
-  ("admin", "nunc@hotmail.ca", "admin", "admin"),
-  ("admin", "ornare.lectus.justo@yahoo.org", "admin", "admin"),
-  ("admin", "mauris.sapien@icloud.com", "admin", "admin"),
-  ("admin", "luctus@icloud.net", "admin", "admin"),
-  ("admin", "aliquet.phasellus.fermentum@yahoo.ca", "admin", "admin"),
-  ("admin", "id.ante@hotmail.ca", "admin", "admin");
+  ("admin", "dui.quis@outlook.com", "admin", "locadora"),
+  ("admin", "nostra.per.inceptos@protonmail.net", "admin", "locadora"),
+  ("admin", "purus@google.edu", "admin", "locadora"),
+  ("admin", "at.egestas.a@protonmail.edu", "admin", "cliente"),
+  ("admin", "enim@icloud.edu", "admin", "cliente"),
+  ("admin", "magnis.dis@outlook.com", "admin", "cliente"),
+  ("admin", "nulla@yahoo.couk", "admin", "cliente"),
+  ("admin", "duis@outlook.org", "admin", "cliente"),
+  ("admin", "venenatis@protonmail.ca", "admin", "cliente"),
+  ("admin", "suspendisse@icloud.org", "admin", "cliente"),
+  ("admin", "varius.orci@aol.edu", "admin", "cliente"),
+  ("admin", "augue.eu.tellus@aol.ca", "admin", "cliente"),
+  ("admin", "morbi@google.org", "admin", "cliente"),
+  ("admin", "aliquam@icloud.org", "admin", "cliente"),
+  ("admin", "etiam.vestibulum.massa@aol.couk", "admin", "cliente"),
+  ("admin", "tempor@hotmail.org", "admin", "cliente"),
+  ("admin", "fusce.feugiat@hotmail.net", "admin", "cliente"),
+  ("admin", "nunc@hotmail.ca", "admin", "cliente"),
+  ("admin", "ornare.lectus.justo@yahoo.org", "admin", "cliente"),
+  ("admin", "mauris.sapien@icloud.com", "admin", "cliente"),
+  ("admin", "luctus@icloud.net", "admin", "cliente"),
+  ("admin", "aliquet.phasellus.fermentum@yahoo.ca", "admin", "cliente"),
+  ("Carlos", "locadora1", "123", "locadora"),
+  ("Pietro", "locadora2", "123", "locadora"),
+  ("Rafa", "cliente", "123", "cliente"),
+  ("Vit", "cliente2", "123", "cliente"),
+  ("admin", "id.ante@hotmail.ca", "admin", "cliente");
 
 INSERT INTO LOCADORA (CNPJ,cidade,email,nome,senha,papel)
 VALUES
@@ -43,7 +47,8 @@ VALUES
   ('53582506660484',"Osasco","nostra.per.inceptos@protonmail.net","Luctus Ut LLC","GWM17NPY2NA","locadora"),
   ('68710705096438',"Barra do Corda","purus@google.edu","Arcu Et Corporation","BKK21XGG1BA","locadora"),
   ('11111111111111', "São Carlos", "locadora1", "Locadora Teste 1", "locadora1", "locadora"),
-  ('22222222222222', "São Carlos", "locadora2", "Locadora Teste 2", "locadora2", "locadora");
+  ('22222222222222', "São Carlos", "locadora2", "Locadora Teste 2", "locadora2", "locadora"),
+  ('33333333333333', "São Carlos", "loca", "Locadora Teste 2", "locadora2", "locadora");
 
 INSERT INTO CLIENTE (CPF, sexo, email, nome, senha, telefone, data_nascimento, papel)
 VALUES
@@ -69,6 +74,6 @@ VALUES
   ('11235452985',"Feminino","luctus@icloud.net","Fitzgerald Siqueira","VTF66XXN4AK","(71)742851169","1999-03-19","cliente"),
   ('11416299908',"Masculino","aliquet.phasellus.fermentum@yahoo.ca","Candace Fonseca","DEH24SQI0VL","(83)832591868","1997-04-10","cliente"),
   ('12163487767',"Masculino","id.ante@hotmail.ca","Dana Coelho","GYP95XJM1BJ","(65)138039439","2008-07-07","cliente"),
-  ('33333333333', "Masculino", "cliente1", "Cliente Teste 1", "cliente1", "16999999999", "01/01/1999", "cliente"),
+  ('33333333333', "Masculino", "cliente", "Cliente Teste 1", "cliente1", "16999999999", "01/01/1999", "cliente"),
   ('44444444444', "Masculino", "cliente2", "Cliente Teste 2", "cliente2", "16888888888", "01/01/1995", "cliente");
 
