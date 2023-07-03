@@ -159,7 +159,7 @@ public class LocacaoController extends HttpServlet {
 		}
 		else
 		{
-            request.getSession().invalidate();
+            //request.getSession().invalidate();
     		RequestDispatcher rd = request.getRequestDispatcher("/noAuth_locacaoDuplicada.jsp");
 			rd.forward(request, response);
 		}

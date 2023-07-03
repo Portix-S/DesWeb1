@@ -29,12 +29,12 @@
    	</tr>
    	<tr>
    		<td><label for="data_locacao">Data Locacao/Lease Date </label></td>
-   		<td><input type="text" id="data_locacao" name="data_locacao" size="5" required
+   		<td><input type="date" id="data_locacao" name="data_locacao" size="5" required
    			value="${locacao.getDataLocacao()}" /></td>
    	</tr>
    	<tr>
    		<td><label for="horario_locacao">Horario Locacao/ Lease Time</label></td>
-   		<td><input type="text" id="horario_locacao" name="horario_locacao" required
+   		<td><input type="time" id="horario_locacao" name="horario_locacao" required
    			value="${locacao.getHorarioLocacao()}" /></td>
    	<tr>
    		<td colspan="2" align="center"><input type="submit" value="<fmt:message key="Salvar" bundle="${bundle}"/>" /></td>
