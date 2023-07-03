@@ -13,12 +13,21 @@
                            </c:otherwise>
    		</c:choose>
 	</caption>
- 	<c:if test="${locadora != null}">
-   		<input type="hidden" name="CNPJ" value="${locadora.CNPJ}" />
-   	</c:if>
-   	<tr>
-   		<td colspan="2" align="center"><label for="CNPJ">CNPJ ${locadora.CNPJ}</label></td>
-   	</tr>
+ 	<c:choose>
+		<c:when test="${locadora != null }">
+			<input type="hidden" name="CNPJ" value="${locadora.getCNPJ()}" />
+			<tr>
+				<td colspan="2" align="center"><label for="CNPJ">CNPJ ${locadora.CNPJ}</label></td>
+			</tr>
+		</c:when>
+		<c:otherwise>
+		<tr>
+			<td><label for="CNPJ">CNPJ</label></td>
+			<td><input type="text" id="CNPJ" name="CNPJ" size="45"
+               required value="${locadora.getCNPJ()}" /></td>
+        </tr>
+        </c:otherwise>
+    </c:choose>
    	<tr>
    		<td><label for="cidade">Cidade</label></td>
    		<td><input type="text" id="cidade" name="cidade" size="45" required

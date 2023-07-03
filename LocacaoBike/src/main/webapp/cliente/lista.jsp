@@ -13,7 +13,7 @@
 	<div align="center">
 		<h1>Gerenciamento de Clientes</h1>
 		<h2>
-			<a href="/<%=contextPath%>">Menu Principal</a> &nbsp;&nbsp;&nbsp; <a
+			<a href="/<%=contextPath%>/logado/admin/index.jsp">Menu Principal</a> &nbsp;&nbsp;&nbsp; <a
 				href="/<%=contextPath%>/clientes/cadastro">Adicione Novo Cliente</a>
 		</h2>
 	</div>

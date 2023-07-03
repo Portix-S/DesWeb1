@@ -13,12 +13,21 @@
                            </c:otherwise>
    		</c:choose>
 	</caption>
- 	<c:if test="${cliente != null}">
-   		<input type="hidden" name="CPF" value="${cliente.getCPF()}" />
-   	</c:if>
-   	<tr>
-   		<td colspan="2" align="center"><label for="CPF">CPF ${cliente.getCPF()}</label></td>
-   	</tr>
+	<c:choose>
+		<c:when test="${cliente != null }">
+			<input type="hidden" name="CPF" value="${cliente.getCPF()}" />
+			<tr>
+				<td colspan="2" align="center"><label for="CPF">CPF ${cliente.CPF}</label></td>
+			</tr>
+		</c:when>
+		<c:otherwise>
+		<tr>
+			<td><label for="CPF">CPF</label></td>
+			<td><input type="text" id="CPF" name="CPF" size="45"
+               required value="${cliente.getCPF()}" /></td>
+        </tr>
+        </c:otherwise>
+    </c:choose>
    	<tr>
    		<td><label for="sexo">Sexo</label></td>
    		<td><input type="text" id="sexo" name="sexo" size="45" required

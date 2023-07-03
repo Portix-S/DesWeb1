@@ -55,10 +55,10 @@ public class IndexController extends HttpServlet {
 				}
 			}
 		}
-        System.out.println("erro");
+        System.out.println(erros.getErros());
 		request.getSession().invalidate();
 		request.setAttribute("mensagens", erros);
-		String URL = "/login.jsp";
+		String URL = "/pagInicial.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(URL);
 		rd.forward(request, response);
 	}

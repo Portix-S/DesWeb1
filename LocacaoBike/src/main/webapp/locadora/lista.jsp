@@ -13,7 +13,7 @@
 	<div align="center">
 		<h1>Gerenciamento de Locadoras</h1>
 		<h2>
-			<a href="/<%=contextPath%>">Menu Principal</a> &nbsp;&nbsp;&nbsp; <a
+			<a href="/<%=contextPath%>/logado/admin/index.jsp">Menu Principal</a> &nbsp;&nbsp;&nbsp; <a
 				href="/<%=contextPath%>/locadoras/cadastro">Adicione Nova Locadora</a>
 		</h2>
 	</div>

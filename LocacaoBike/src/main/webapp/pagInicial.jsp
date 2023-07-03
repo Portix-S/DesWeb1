@@ -1,5 +1,11 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page isELIgnored="false"%>
+<style>
+    .centered-link {
+        text-align: center;
+        font-size: 25px;
+    }
+</style>
 <!DOCTYPE html>
 <html>
     <head>
@@ -7,9 +13,14 @@
         <title>Locacao Virtual</title>
     </head>
     <body>
-        <a href="locadorasDisp">Lista de Locadoras</a>
-    </body>
-    <body>
-        <a href="login.jsp">Login</a>
+    <h1 style="text-align:center;">Bem-vindo ao sistema de locação virtual de bicicletas!</h1>
+    <h3 style="text-align:center;">Listagem de todas as locadoras disponíveis para aluguel de bicicletas: </h3>
+    <div class="centered-link">
+    	<a href="locadorasDisp">Lista de Locadoras</a>
+    </div>
+	<h3 style="text-align:center;">Realize login para acessar mais opções:</h3>
+	<div class="centered-link">
+    	<a href="login.jsp">Login</a>
+    </div>
     </body>
 </html>
