@@ -17,6 +17,9 @@ import java.util.ResourceBundle;;
 public class UsuarioController extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
+	ResourceBundle bundle = ResourceBundle.getBundle("messages", new Locale("pt", "BR"));
+	String Erro7 = bundle.getString("Erro7");
+	String Erro5 = bundle.getString("Erro5");
     
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -41,8 +44,8 @@ public class UsuarioController extends HttpServlet {
     		RequestDispatcher dispatcher = request.getRequestDispatcher("/logado/cliente/index.jsp");
             dispatcher.forward(request, response);
     	} else {
-    		erros.add("Acesso não autorizado!");
-    		erros.add("Apenas Papel [cliente] tem acesso a essa página");
+    		erros.add(Erro5);
+    		erros.add(Erro7);
     		request.setAttribute("mensagens", erros);
     		RequestDispatcher rd = request.getRequestDispatcher("/noAuth.jsp");
     		rd.forward(request, response);

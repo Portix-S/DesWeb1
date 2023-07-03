@@ -18,6 +18,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Locale;
+import java.util.ResourceBundle;;
 
 @WebServlet(urlPatterns = "/locacoes/*")
 public class LocacaoController extends HttpServlet {
@@ -27,6 +29,9 @@ public class LocacaoController extends HttpServlet {
     private LocadoraDAO dao;
     private UsuarioDAO usuarioDao;
     private ClienteDAO clienteDao;
+    ResourceBundle bundle = ResourceBundle.getBundle("messages", new Locale("pt", "BR"));
+	String Erro1 = bundle.getString("Erro1");
+	
 
     @Override
     public void init() {
