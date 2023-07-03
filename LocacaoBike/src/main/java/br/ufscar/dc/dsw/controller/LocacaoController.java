@@ -18,6 +18,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import br.ufscar.dc.dsw.util.Erro;
 
 @WebServlet(urlPatterns = "/locacoes/*")
 public class LocacaoController extends HttpServlet {
@@ -117,6 +118,7 @@ public class LocacaoController extends HttpServlet {
     }
 
     private void insere(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        Erro erros = new Erro();
         request.setCharacterEncoding("UTF-8");
         String CPF = request.getParameter("CPF");
         String CNPJ = request.getParameter("CNPJ");
@@ -131,9 +133,23 @@ public class LocacaoController extends HttpServlet {
             locacao_dao.insert(locacao);
         }
         else {
-            System.out.println("Nao inseriu por repeticao de data e horario.");
+            erros.add("Data e hora de locação já em uso!");
         }
-        response.sendRedirect("lista");  
+        System.out.println(erros.getErros());
+		request.getSession().invalidate();
+		request.setAttribute("mensagens", erros);
+		if (!erros.isExisteErros())
+		{
+			/*String URL = "/pagInicial.jsp";
+			RequestDispatcher rd = request.getRequestDispatcher(URL);
+			rd.forward(request, response);*/
+            response.sendRedirect("lista");  
+		}
+		else
+		{
+    		RequestDispatcher rd = request.getRequestDispatcher("/noAuth_locacaoDuplicada.jsp");
+			rd.forward(request, response);
+		}
         
         //RequestDispatcher dispatcher = request.getRequestDispatcher("/locacoes/lista");
         //dispatcher.forward(request, response);

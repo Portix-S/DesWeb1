@@ -99,9 +99,8 @@
 								Remoção </a></td>
 					</c:if>
 					<c:if test="${usuarioLogado.getPapel() == 'cliente'}">
-						<td><a href="/<%= contextPath%>/locacoes/cadastro?CNPJ=${locadora.getCNPJ()}&Email=${usuarioLogado.getEmail()}">Fazer Locação</a>
+						<td><a href="${pageContext.request.contextPath}/locacoes/cadastro?CNPJ=${locadora.getCNPJ()}&Email=${usuarioLogado.getEmail()}">Fazer Locação</a>
 					</c:if>
-
 
 				</tr>
 			</c:forEach>

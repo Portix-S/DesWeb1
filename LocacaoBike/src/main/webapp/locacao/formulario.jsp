@@ -11,7 +11,9 @@
 	<div align="center">
 		<h1>Sistema de Locação</h1>
 		<h2>
-			<a href="lista">Voltar</a>
+			<c:if test="${usuarioLogado.getPapel() == 'cliente'}">
+				<td><a href="${pageContext.request.contextPath}/locadoras">Voltar</a>
+			</c:if>
 		</h2>
 	</div>
 	<div align="center">
