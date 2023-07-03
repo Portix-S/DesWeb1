@@ -40,7 +40,8 @@
                 </tr>
             </table>
         </form>
-		<a href="pagInicial.jsp">Menu Principal</a>
+		<a href="pagInicial.jsp"><fmt:message key="greeting12" bundle="${bundle}"/></a>
+
 
     </body>
 </html>

@@ -16,7 +16,7 @@
     
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Locacao Virtual</title>
+        <title><fmt:message key="greeting25" bundle="${bundle}"/></title>
     </head>
     <body>
         <%
