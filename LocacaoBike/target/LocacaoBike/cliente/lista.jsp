@@ -7,6 +7,8 @@
 <title>Locação Virtual</title>
 </head>
 <body>
+	<c:if test="${usuarioLogado.getPapel() == 'admin'}">
+	
 	<%
 		String contextPath = request.getContextPath().replace("/", "");
 	%>
@@ -50,5 +52,9 @@
 			</c:forEach>
 		</table>
 	</div>
+	</c:if>
+	<c:if test="${usuarioLogado.getPapel() != 'admin'}">
+		<h1>Você não tem acesso à essa pagina</h1>
+	</c:if>
 </body>
 </html>
