@@ -61,39 +61,7 @@ public class LocacaoDAO extends GenericDAO {
                 String CNPJ = resultSet.getString("CNPJ");
                 String data_locacao = resultSet.getString("data_locacao");
                 String hora_locacao = resultSet.getString("hora_locacao");
-                Locacao locacao = new Locacao(id, CPF, CNPJ, data_locacao, hora_locacao);
-                listaLocacoes.add(locacao);
-            }
-
-            resultSet.close();
-            statement.close();
-            conn.close();
-        } catch (SQLException e) {
-            System.out.println("Erro ao pegar a lista");
-            throw new RuntimeException(e);
-        }
-        return listaLocacoes;
-    }
-
-    public List<Locacao> getAllByCNPJ(String CNPJ) {
-
-        List<Locacao> listaLocacoes = new ArrayList<>();
-        String sql = "SELECT * from LOCACAO where CNPJ = ?";
-
-        try {
-            Connection conn = this.getConnection();
-            //Statement statement = conn.createStatement();
-            PreparedStatement statement = conn.prepareStatement(sql);
-            System.out.println(CNPJ + "procurando");
-            statement.setString(1, CNPJ);
-            ResultSet resultSet = statement.executeQuery();
-
-            //ResultSet resultSet = statement.executeQuery(sql);
-            while (resultSet.next()) {
-                Long id = resultSet.getLong("id");
-                String CPF = resultSet.getString("CPF");
-                String data_locacao = resultSet.getString("data_locacao");
-                String hora_locacao = resultSet.getString("hora_locacao");
+                System.out.println(CNPJ + data_locacao + hora_locacao + CPF);
                 Locacao locacao = new Locacao(id, CPF, CNPJ, data_locacao, hora_locacao);
                 listaLocacoes.add(locacao);
             }

@@ -16,9 +16,6 @@
                 <a href="${pageContext.request.contextPath}/locadoras">Lista Locadoras</a>
             </li>
             <li>
-                <a href="${pageContext.request.contextPath}/locacoes">Lista Locações</a>
-            </li>
-            <li>
                 <a href="${pageContext.request.contextPath}/logout.jsp">Sair</a>
             </li>
         </ul>

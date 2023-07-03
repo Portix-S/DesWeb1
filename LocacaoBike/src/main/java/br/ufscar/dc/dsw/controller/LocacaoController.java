@@ -75,21 +75,8 @@ public class LocacaoController extends HttpServlet {
     }
 
     private void lista(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Usuario usuario = (Usuario) request.getSession().getAttribute("usuarioLogado");
-        List<Locacao> listaLocacoes = null;
-        Cliente cliente = clienteDao.getByEmail(usuario.getEmail());
-        if(cliente != null)
-        {
-            System.out.println("Recebido CPF: " + cliente.getCPF());
-            listaLocacoes = locacao_dao.getAll(cliente.getCPF());
-        }
-        else
-        {
-            System.out.println("Passouuu");
-            Locadora locadora = dao.getByEmail(usuario.getEmail());
-            listaLocacoes = locacao_dao.getAllByCNPJ(locadora.getCNPJ());
-            System.out.println("Criou Lista");
-        }
+        System.out.println("Recebido CPF: " + request);
+        List<Locacao> listaLocacoes = locacao_dao.getAll(this.getCPF());
         request.setAttribute("listaLocacoes", listaLocacoes);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/locacao/lista.jsp");
         dispatcher.forward(request, response);
@@ -124,9 +111,7 @@ public class LocacaoController extends HttpServlet {
         String horario_locacao = request.getParameter("horario_locacao");
         Locacao locacao = new Locacao(CPF, CNPJ, data_locacao, horario_locacao);
         locacao_dao.insert(locacao);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/locacoes/lista");
-        dispatcher.forward(request, response);
-        //response.sendRedirect("lista");
+        response.sendRedirect("lista");
     }
 
     private void atualize(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

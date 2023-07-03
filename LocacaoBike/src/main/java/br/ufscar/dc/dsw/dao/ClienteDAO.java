@@ -187,6 +187,7 @@ public class ClienteDAO extends GenericDAO {
             resultSet.close();
             statement.close();
             conn.close();
+            System.out.println("passou");
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
