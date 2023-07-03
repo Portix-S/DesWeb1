@@ -9,14 +9,27 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import br.ufscar.dc.dsw.domain.Usuario;
 import br.ufscar.dc.dsw.util.Erro;
+import java.util.Locale;
+import java.util.ResourceBundle;;
+
 
 @WebServlet(urlPatterns = "/loginCliente/*")
 public class UsuarioController extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
+	ResourceBundle bundle = ResourceBundle.getBundle("messages", new Locale("pt", "BR"));
+	String Erro7 = bundle.getString("Erro7");
+	String Erro5 = bundle.getString("Erro5");
     
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String acceptLanguage = request.getHeader("Accept-Language");
+
+		String lang = acceptLanguage.split("-")[0];
+		String country = acceptLanguage.split("-")[1];
+		
+
+		request.setAttribute("javax.servlet.jsp.jstl.fmt.locale", new Locale(lang, country));
         doGet(request, response);
     }
     
@@ -31,8 +44,8 @@ public class UsuarioController extends HttpServlet {
     		RequestDispatcher dispatcher = request.getRequestDispatcher("/logado/cliente/index.jsp");
             dispatcher.forward(request, response);
     	} else {
-    		erros.add("Acesso não autorizado!");
-    		erros.add("Apenas Papel [cliente] tem acesso a essa página");
+    		erros.add(Erro5);
+    		erros.add(Erro7);
     		request.setAttribute("mensagens", erros);
     		RequestDispatcher rd = request.getRequestDispatcher("/noAuth.jsp");
     		rd.forward(request, response);

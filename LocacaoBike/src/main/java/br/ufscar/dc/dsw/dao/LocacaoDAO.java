@@ -72,6 +72,7 @@ public class LocacaoDAO extends GenericDAO {
             conn.close();
         } catch (SQLException e) {
             System.out.println("Erro ao pegar a lista");
+            System.out.println(e);
             throw new RuntimeException(e);
         }
         return listaLocacoes;
