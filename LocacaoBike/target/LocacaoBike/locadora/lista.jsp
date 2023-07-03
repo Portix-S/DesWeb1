@@ -8,7 +8,7 @@
 
 <html>
 <head>
-<title>Locacao Virtual</title>
+<title><fmt:message key="greeting25" bundle="${bundle}"/></title>
 </head>
 
 <script>
@@ -99,7 +99,7 @@
 						<td><a href="/<%= contextPath%>/locadoras/edicao?CNPJ=${locadora.CNPJ}"><fmt:message key="greeting29" bundle="${bundle}"/></a>
 							&nbsp;&nbsp;&nbsp;&nbsp; <a
 							href="/<%= contextPath%>/locadoras/remocao?CNPJ=${locadora.CNPJ}"
-							onclick="return confirm('Tem certeza de que deseja excluir este item?');">
+							onclick="return confirm('<fmt:message key="Excluir" bundle="${bundle}"/>');">
 							<fmt:message key="greeting37" bundle="${bundle}"/> </a></td>
 					</c:if>
 					<c:if test="${usuarioLogado.getPapel() == 'cliente'}">

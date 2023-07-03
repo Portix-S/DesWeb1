@@ -67,6 +67,6 @@
             value="${cliente.getSenha()}" /></td>
     </tr>
    	<tr>
-   		<td colspan="2" align="center"><input type="submit" value="Salva" /></td>
+   		<td colspan="2" align="center"><input type="submit" value="<fmt:message key="Salvar" bundle="${bundle}"/>" /></td>
    	</tr>
 </table>

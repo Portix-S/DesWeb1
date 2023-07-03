@@ -35,7 +35,7 @@
                 </tr>
                 <tr>
                     <td colspan="2"> 
-                        <input type="submit" name="bOK" value="Entrar"/>
+                        <input type="submit" name="bOK" value="<fmt:message key="Enter" bundle="${bundle}"/>"/>
                     </td>
                 </tr>
             </table>
