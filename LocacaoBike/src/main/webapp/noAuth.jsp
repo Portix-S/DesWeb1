@@ -21,7 +21,7 @@
                 </ul>
             </div>
             <ul>
-                <a href="login.jsp"> Voltar para o Login</a>
+                <a href="login.jsp"> Login</a>
             </ul>
         </c:if>
     </body>

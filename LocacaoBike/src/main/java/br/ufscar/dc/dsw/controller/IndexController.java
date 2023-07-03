@@ -18,8 +18,22 @@ import java.util.ResourceBundle;;
 @WebServlet(name = "Index", urlPatterns = { "/index.jsp", "/logout.jsp"})
 public class IndexController extends HttpServlet {
 
+	String pietro;
+	@Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		String acceptLanguage = request.getHeader("Accept-Language");
+
+		String lang = acceptLanguage.split("-")[0];
+		String country = acceptLanguage.split("-")[1];
+		pietro = lang;
+
+		request.setAttribute("javax.servlet.jsp.jstl.fmt.locale", new Locale(lang, country));
+		doGet(request, response);
+    }
 	private static final long serialVersionUID = 1L;
-	ResourceBundle bundle = ResourceBundle.getBundle("messages", new Locale("pt", "BR"));
+	
+	ResourceBundle bundle = ResourceBundle.getBundle("messages", new Locale("en", "EN"));
 	String Erro1 = bundle.getString("Erro1");
 	String Erro2 = bundle.getString("Erro2");
 	String Erro3 = bundle.getString("Erro3");
@@ -27,20 +41,16 @@ public class IndexController extends HttpServlet {
 
 	
     
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		String acceptLanguage = request.getHeader("Accept-Language");
-
-		String lang = acceptLanguage.split("-")[0];
-		String country = acceptLanguage.split("-")[1];
-		
-
-		request.setAttribute("javax.servlet.jsp.jstl.fmt.locale", new Locale(lang, country));
-		doGet(request, response);
-    }
+    
 	
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		if(pietro == "en")
+		{
+			bundle = ResourceBundle.getBundle("messages", new Locale("en", "EN"));
+		}
+		else
+			bundle = ResourceBundle.getBundle("messages", new Locale("pt", "BR"));
+
 		Erro erros = new Erro();
 		if (request.getParameter("bOK") != null) {
 			String email = request.getParameter("email");
