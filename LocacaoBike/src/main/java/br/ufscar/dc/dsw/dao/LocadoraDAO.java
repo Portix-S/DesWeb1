@@ -156,4 +156,34 @@ public class LocadoraDAO extends GenericDAO {
         }
      return locadora;
     }
+
+    public Locadora getByEmail(String email) {
+        Locadora locadora = null;   
+        String sql = "SELECT * from LOCADORA where email = ?";
+        ResultSet resultSet = null;
+        try {
+            Connection conn = this.getConnection();
+            PreparedStatement statement = conn.prepareStatement(sql);
+            
+            statement.setString(1, email);
+            resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                String cidade = resultSet.getString("cidade");
+                String CNPJ = resultSet.getString("CNPJ");
+                String nome = resultSet.getString("nome");
+                String senha = resultSet.getString("senha");
+                String papel = resultSet.getString("papel");
+                locadora = new Locadora(CNPJ, cidade, email, nome, senha, papel);
+            }
+
+            resultSet.close();
+            statement.close();
+            conn.close();
+        } catch (SQLException e) {
+            System.out.println(resultSet);
+            System.out.println("Erro ao procurar locadora");
+            throw new RuntimeException(e);
+        }
+     return locadora;
+    }
 }
