@@ -56,8 +56,13 @@
 					<a href="${pageContext.request.contextPath}/loginLocadora/">Menu Locadora</a>
 				</c:if>
 				<c:if test="${usuarioLogado.getPapel() == 'admin'}">
-					<a href="${pageContext.request.contextPath}/locadoras/cadastro">Adcionar Locadora</a>
+					<a href="${pageContext.request.contextPath}/logado/admin/index.jsp">Menu Admin</a>
+					<a href="${pageContext.request.contextPath}/locadoras/cadastro">Adicionar Locadora</a>
 				</c:if>
+				
+			</c:if>
+			<c:if test="${usuarioLogado == null}">
+					<a href="/<%=contextPath%>/pagInicial.jsp">Menu Principal</a>
 			</c:if>
 		</h2>
 	</div>
