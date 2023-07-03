@@ -106,7 +106,6 @@
 						<td><a href="/<%= contextPath%>/locacoes/cadastro?CNPJ=${locadora.getCNPJ()}&Email=${usuarioLogado.getEmail()}"><fmt:message key="greeting30" bundle="${bundle}"/></a>
 					</c:if>
 
-
 				</tr>
 			</c:forEach>
 		</table>
