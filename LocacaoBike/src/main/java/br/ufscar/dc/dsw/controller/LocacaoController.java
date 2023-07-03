@@ -148,7 +148,7 @@ public class LocacaoController extends HttpServlet {
             erros.add("Data e hora de locação já em uso!");
         }
         System.out.println(erros.getErros());
-		request.getSession().invalidate();
+		
 		request.setAttribute("mensagens", erros);
 		if (!erros.isExisteErros())
 		{
@@ -159,6 +159,7 @@ public class LocacaoController extends HttpServlet {
 		}
 		else
 		{
+            request.getSession().invalidate();
     		RequestDispatcher rd = request.getRequestDispatcher("/noAuth_locacaoDuplicada.jsp");
 			rd.forward(request, response);
 		}
