@@ -41,7 +41,9 @@ INSERT INTO LOCADORA (CNPJ,cidade,email,nome,senha,papel)
 VALUES
   ('81816304803883',"Açailândia","dui.quis@outlook.com","Montes Nascetur Corporation","UAU98GXH1QG","locadora"),
   ('53582506660484',"Osasco","nostra.per.inceptos@protonmail.net","Luctus Ut LLC","GWM17NPY2NA","locadora"),
-  ('68710705096438',"Barra do Corda","purus@google.edu","Arcu Et Corporation","BKK21XGG1BA","locadora");
+  ('68710705096438',"Barra do Corda","purus@google.edu","Arcu Et Corporation","BKK21XGG1BA","locadora"),
+  ('11111111111111', "São Carlos", "locadora1", "Locadora Teste 1", "locadora1", "locadora"),
+  ('22222222222222', "São Carlos", "locadora2", "Locadora Teste 2", "locadora2", "locadora");
 
 INSERT INTO CLIENTE (CPF, sexo, email, nome, senha, telefone, data_nascimento, papel)
 VALUES
@@ -66,5 +68,7 @@ VALUES
   ('11386853112',"Masculino","mauris.sapien@icloud.com","Zorita da Cruz","FNJ52HKI8FV","(52)142665245","2005-02-12","cliente"),
   ('11235452985',"Feminino","luctus@icloud.net","Fitzgerald Siqueira","VTF66XXN4AK","(71)742851169","1999-03-19","cliente"),
   ('11416299908',"Masculino","aliquet.phasellus.fermentum@yahoo.ca","Candace Fonseca","DEH24SQI0VL","(83)832591868","1997-04-10","cliente"),
-  ('12163487767',"Masculino","id.ante@hotmail.ca","Dana Coelho","GYP95XJM1BJ","(65)138039439","2008-07-07","cliente");
+  ('12163487767',"Masculino","id.ante@hotmail.ca","Dana Coelho","GYP95XJM1BJ","(65)138039439","2008-07-07","cliente"),
+  ('33333333333', "Masculino", "cliente1", "Cliente Teste 1", "cliente1", "16999999999", "01/01/1999", "cliente"),
+  ('44444444444', "Masculino", "cliente2", "Cliente Teste 2", "cliente2", "16888888888", "01/01/1995", "cliente");
 

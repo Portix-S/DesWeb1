@@ -10,7 +10,11 @@
     <body>
         <h1>Página da Locadora</h1>
         <p>Olá ${sessionScope.usuarioLogado.nome}</p>
+
         <ul>
+            <li>
+                <a href="${pageContext.request.contextPath}/locadoras">Lista Locadoras</a>
+            </li>
             <li>
                 <a href="${pageContext.request.contextPath}/logout.jsp">Sair</a>
             </li>

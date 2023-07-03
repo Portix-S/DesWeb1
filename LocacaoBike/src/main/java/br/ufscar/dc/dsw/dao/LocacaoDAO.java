@@ -19,14 +19,13 @@ public class LocacaoDAO extends GenericDAO {
     // }
 
     public void insert(Locacao locacao) {
-        String sql = "INSERT INTO LOCADORA (CPF, CNPJ, data_locacao, horario_locacao) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO LOCACAO (CPF, CNPJ, data_locacao, hora_locacao) VALUES (?, ?, ?, ?)";
 
         try {
             Connection conn = this.getConnection();
             PreparedStatement statement = conn.prepareStatement(sql);
 
             statement = conn.prepareStatement(sql);
-            statement.setString(1, locacao.getCPF());
             statement.setString(1, locacao.getCPF());
             statement.setString(2, locacao.getCNPJ());
             statement.setString(3, locacao.getDataLocacao());
@@ -43,23 +42,27 @@ public class LocacaoDAO extends GenericDAO {
         }
     }
 
-    public List<Locacao> getAll() {
+    public List<Locacao> getAll(String CPF) {
 
         List<Locacao> listaLocacoes = new ArrayList<>();
-        String sql = "SELECT * from LOCACAO";
+        String sql = "SELECT * from LOCACAO where CPF = ?";
 
         try {
             Connection conn = this.getConnection();
-            Statement statement = conn.createStatement();
+            //Statement statement = conn.createStatement();
+            PreparedStatement statement = conn.prepareStatement(sql);
+            System.out.println(CPF + "procurando");
+            statement.setString(1, CPF);
+            ResultSet resultSet = statement.executeQuery();
 
-            ResultSet resultSet = statement.executeQuery(sql);
+            //ResultSet resultSet = statement.executeQuery(sql);
             while (resultSet.next()) {
                 Long id = resultSet.getLong("id");
-                String CPF = resultSet.getString("CPF");
                 String CNPJ = resultSet.getString("CNPJ");
                 String data_locacao = resultSet.getString("data_locacao");
-                String horario_locacao = resultSet.getString("horario_locacao");
-                Locacao locacao = new Locacao(id, CPF, CNPJ, data_locacao, horario_locacao);
+                String hora_locacao = resultSet.getString("hora_locacao");
+                System.out.println(CNPJ + data_locacao + hora_locacao + CPF);
+                Locacao locacao = new Locacao(id, CPF, CNPJ, data_locacao, hora_locacao);
                 listaLocacoes.add(locacao);
             }
 
@@ -67,6 +70,7 @@ public class LocacaoDAO extends GenericDAO {
             statement.close();
             conn.close();
         } catch (SQLException e) {
+            System.out.println("Erro ao pegar a lista");
             throw new RuntimeException(e);
         }
         return listaLocacoes;
@@ -92,7 +96,7 @@ public class LocacaoDAO extends GenericDAO {
     }
 
     public void update(Locacao locacao) {
-        String sql = "UPDATE LOCACAO SET data_locacao = ?, horario_locacao = ? WHERE id = ?";
+        String sql = "UPDATE LOCACAO SET data_locacao = ?, hora_locacao = ? WHERE id = ?";
 
         try {
             Connection conn = this.getConnection();
@@ -127,8 +131,35 @@ public class LocacaoDAO extends GenericDAO {
                 String CPF = resultSet.getString("CPF");
                 String CNPJ = resultSet.getString("CNPJ");
                 String data_locacao = resultSet.getString("data_locacao");
-                String horario_locacao = resultSet.getString("horario_locacao");
-                locacao = new Locacao(id, CPF, CNPJ, data_locacao, horario_locacao);
+                String hora_locacao = resultSet.getString("hora_locacao");
+                locacao = new Locacao(id, CPF, CNPJ, data_locacao, hora_locacao);
+            }
+
+            resultSet.close();
+            statement.close();
+            conn.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+     return locacao;
+    }
+
+    public Locacao getByCNPJ(String CNPJ) {
+        Locacao locacao = null;   
+        String sql = "SELECT * from LOCACAO where CNPJ = ?";
+
+        try {
+            Connection conn = this.getConnection();
+            PreparedStatement statement = conn.prepareStatement(sql);
+            
+            statement.setString(1, CNPJ);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                String CPF = resultSet.getString("CPF");
+                Long id = resultSet.getLong("id");
+                String data_locacao = resultSet.getString("data_locacao");
+                String hora_locacao = resultSet.getString("hora_locacao");
+                locacao = new Locacao(id, CPF, CNPJ, data_locacao, hora_locacao);
             }
 
             resultSet.close();

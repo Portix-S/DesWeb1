@@ -7,15 +7,16 @@
 <title>Locação Virtual</title>
 </head>
 <body>
-	<c:if test="${usuarioLogado.getPapel() == 'admin'}">
 	
 	<%
 		String contextPath = request.getContextPath().replace("/", "");
 	%>
+	<c:if test="${usuarioLogado.getPapel() == 'admin'}">
+
 	<div align="center">
 		<h1>Gerenciamento de Clientes</h1>
 		<h2>
-			<a href="/<%=contextPath%>/logado/admin/index.jsp">Menu Principal</a> &nbsp;&nbsp;&nbsp; <a
+			<a href="/<%=contextPath%>/logado/admin/index.jsp">Menu Admin</a> &nbsp;&nbsp;&nbsp; <a
 				href="/<%=contextPath%>/clientes/cadastro">Adicione Novo Cliente</a>
 		</h2>
 	</div>
@@ -55,6 +56,7 @@
 	</c:if>
 	<c:if test="${usuarioLogado.getPapel() != 'admin'}">
 		<h1>Você não tem acesso à essa pagina</h1>
+			<a href="/<%=contextPath%>/pagInicial.jsp">Menu Principal</a>
 	</c:if>
 </body>
 </html>

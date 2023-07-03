@@ -4,13 +4,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
     "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-    <head>
-        <title>Erro</title>
-    </head>
-    <body>
-        <center>
-            <h1>Erro</h1>
-            <h2><%= exception.getMessage()%><br/> </h2>
-        </center>	
-    </body>
+    <h1>Você não tem acesso à essa pagina</h1>
+			<a href="/<%=contextPath%>/pagInicial.jsp">Menu Principal</a>
 </html>

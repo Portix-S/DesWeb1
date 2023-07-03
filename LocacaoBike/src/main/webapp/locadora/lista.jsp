@@ -48,14 +48,12 @@
 	<div align="center">
 		<h1>Gerenciamento de Locadora</h1>
 		<h2>
-			<a href="/<%=contextPath%>">Menu Principal</a> 
 			<c:if test="${usuarioLogado != null }">
 				<c:if test="${usuarioLogado.getPapel() == 'cliente'}">
-					<a href="/<%=contextPath%>/cliente/">Menu Cliente</a>
+					<a href="/<%=contextPath%>/loginCliente/">Menu Cliente</a>
 				</c:if>
 				<c:if test="${usuarioLogado.getPapel() == 'locadora'}">
-					<a href="${pageContext.request.contextPath}/locadora/">Menu Locadora</a>
-					<a href="${pageContext.request.contextPath}/locacao/cadastro">Adicione Nova Bike</a>
+					<a href="${pageContext.request.contextPath}/loginLocadora/">Menu Locadora</a>
 				</c:if>
 				<c:if test="${usuarioLogado.getPapel() == 'admin'}">
 					<a href="${pageContext.request.contextPath}/locadoras/cadastro">Adcionar Locadora</a>
@@ -95,6 +93,10 @@
 							onclick="return confirm('Tem certeza de que deseja excluir este item?');">
 								Remoção </a></td>
 					</c:if>
+					<c:if test="${usuarioLogado.getPapel() == 'cliente'}">
+						<td><a href="/<%= contextPath%>/locacoes/cadastro?CNPJ=${locadora.getCNPJ()}&Email=${usuarioLogado.getEmail()}">Fazer Locação</a>
+					</c:if>
+
 
 				</tr>
 			</c:forEach>

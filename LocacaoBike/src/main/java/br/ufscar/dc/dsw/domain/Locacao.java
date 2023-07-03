@@ -13,6 +13,13 @@ public class Locacao {
         this.id = id;
     }
 
+    public Locacao(String CPF, String CNPJ, String data_locacao, String horario_locacao) {
+        this.CPF = CPF;
+        this.CNPJ = CNPJ;
+        this.data_locacao = data_locacao;
+        this.horario_locacao = horario_locacao;
+    }
+
     public Locacao(Long id, String CPF, String CNPJ, String data_locacao, String horario_locacao) {
         this.id = id;
         this.CPF = CPF;

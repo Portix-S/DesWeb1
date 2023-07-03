@@ -18,43 +18,22 @@
    	</c:if>
    	<tr>
    		<td colspan="2" align="center"><label for="CPF">CPF ${cliente.getCPF()}</label></td>
+   		</tr><input type="hidden" id="CPF" name="CPF"
+	   		value="${cliente.getCPF()}" />
+   	<tr>
+		<td colspan="2" align="center"><label for="CNPJ" >CNPJ ${locadora.getCNPJ()}</label></td>
+		<input type="hidden" id="CNPJ" name="CNPJ"
+			value="${locadora.getCNPJ()}" />
    	</tr>
    	<tr>
-   		<td><label for="sexo">Sexo</label></td>
-   		<td><input type="text" id="sexo" name="sexo" size="45" required
-   			value="${cliente.getSexo()}" /></td>
+   		<td><label for="data_locacao">Data Locacao</label></td>
+   		<td><input type="text" id="data_locacao" name="data_locacao" size="5" required
+   			value="${locacao.getDataLocacao()}" /></td>
    	</tr>
    	<tr>
-   		<td><label for="email">Email</label></td>
-   		<td><input type="text" id="email" name="email" size="5" required
-   			value="${cliente.getEmail()}" /></td>
-   	</tr>
-   	<tr>
-   		<td><label for="nome">Nome</label></td>
-   		<td><input type="text" id="nome" name="nome" required
-   			value="${cliente.getNome()}" /></td>
-   	</tr>
-       <tr>
-        <td><label for="telefone">Telefone</label></td>
-        <td><input type="text" id="telefone" name="telefone" required
-            value="${cliente.getTelefone()}" /></td>
-    </tr>
-		<tr>
-		<td><label for="data_nascimento">Data de Nascimento</label></td>
-		<td><input type="text" id="data_nascimento" name="data_nascimento" required
-			value="${cliente.getDataNascimento()}" /></td>
-	</tr>
-	</tr>
-		<tr>
-		<td><label for="papel">Papel do Usuário</label></td>
-		<td><input type="text" id="papel" name="papel" required
-		value="${cliente.getPapel()}" /></td>
-	</tr>
-	<tr>
-        <td><label for="senha">Senha de Usuário</label></td>
-        <td><input type="text" id="senha" name="senha" required
-            value="${cliente.getSenha()}" /></td>
-    </tr>
+   		<td><label for="horario_locacao">Horario Locacao</label></td>
+   		<td><input type="text" id="horario_locacao" name="horario_locacao" required
+   			value="${locacao.getHorarioLocacao()}" /></td>
    	<tr>
    		<td colspan="2" align="center"><input type="submit" value="Salva" /></td>
    	</tr>
