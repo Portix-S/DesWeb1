@@ -7,31 +7,6 @@
 <title>Locação Virtual</title>
 </head>
 
-<script>
-	function filterFunction() {
-	  // Declare variables
-	  var input, filter, table, tr, td, i, txtValue;
-	  input = document.getElementById("modelFilter");
-	  filter = input.value.toUpperCase();
-	  table = document.getElementById("cidade");
-	  tr = table.getElementsByTagName("tr");
-	
-	  // Loop through all table rows, and hide those who don't match the search query
-	  for (i = 0; i < tr.length; i++) {
-	    td = tr[i].getElementsByTagName("td")[1];
-	    if (td) {
-	      txtValue = td.textContent || td.innerText;
-	      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-	        tr[i].style.display = "";
-	      } else {
-	        tr[i].style.display = "none";
-	      }
-	    }
-	  }
-	}
-</script>
-
-
 <body>
 	<c:if test="${mensagens.existeErros}">
 	    <div id="erro">
@@ -53,7 +28,7 @@
 					<a href="/<%=contextPath%>/loginCliente/">Menu Cliente</a>
 				</c:if>
 				<c:if test="${usuarioLogado.getPapel() == 'locadora'}">
-					<a href="${pageContext.request.contextPath}/loginLocadora/">Menu locadora</a>
+					<a href="/<%=contextPath%>/loginLocadora/">Menu locadora</a>
 				</c:if>
 			</c:if>
 		</h2>
@@ -62,8 +37,7 @@
 	
 
 	<div align="center">
-	<input type="text" id="modelFilter" onkeyup="filterFunction()" placeholder ="Procure pela cidade">
-		<table id="cidade" border="1">
+		<table border="1">
 			<caption>Lista de locacao</caption>
 			<tr>
 				<th>CPF</th>
