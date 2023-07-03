@@ -9,7 +9,7 @@
 	<caption>
    		<c:choose>
    			<c:when test="${locadora != null}">
-				Edicao
+				<fmt:message key="greeting29" bundle="${bundle}"/>
                            </c:when>
    			<c:otherwise>
 				<fmt:message key="greeting31" bundle="${bundle}"/>
@@ -53,6 +53,6 @@
             value="${locadora.senha}" /></td>
     </tr>
    	<tr>
-   		<td colspan="2" align="center"><input type="submit" value="Salva" /></td>
+   		<td colspan="2" align="center"><input type="submit" value="<fmt:message key="Salvar" bundle="${bundle}"/>" /></td>
    	</tr>
 </table>

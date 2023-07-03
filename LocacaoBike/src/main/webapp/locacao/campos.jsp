@@ -37,6 +37,6 @@
    		<td><input type="text" id="horario_locacao" name="horario_locacao" required
    			value="${locacao.getHorarioLocacao()}" /></td>
    	<tr>
-   		<td colspan="2" align="center"><input type="submit" value="Salva" /></td>
+   		<td colspan="2" align="center"><input type="submit" value="<fmt:message key="Salvar" bundle="${bundle}"/>" /></td>
    	</tr>
 </table>

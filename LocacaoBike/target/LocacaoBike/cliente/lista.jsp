@@ -49,7 +49,7 @@
 					<td><a href="/<%= contextPath%>/clientes/edicao?CPF=${cliente.getCPF()}"><fmt:message key="greeting29" bundle="${bundle}"/></a>
 						&nbsp;&nbsp;&nbsp;&nbsp; <a
 						href="/<%= contextPath%>/clientes/remocao?CPF=${cliente.getCPF()}"
-						onclick="return confirm('Tem certeza de que deseja excluir este item?');">
+						onclick="return confirm('<fmt:message key="Excluir" bundle="${bundle}"/>');">
 						<fmt:message key="greeting37" bundle="${bundle}"/></a></td>
 				</tr>
 			</c:forEach>
