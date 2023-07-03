@@ -54,12 +54,21 @@ public class IndexController extends HttpServlet {
 					erros.add("Usuário não encontrado!");
 				}
 			}
+			
 		}
         System.out.println(erros.getErros());
 		request.getSession().invalidate();
 		request.setAttribute("mensagens", erros);
-		String URL = "/pagInicial.jsp";
-		RequestDispatcher rd = request.getRequestDispatcher(URL);
-		rd.forward(request, response);
+		if (!erros.isExisteErros())
+		{
+			String URL = "/pagInicial.jsp";
+			RequestDispatcher rd = request.getRequestDispatcher(URL);
+			rd.forward(request, response);
+		}
+		else
+		{
+    		RequestDispatcher rd = request.getRequestDispatcher("/noAuth.jsp");
+			rd.forward(request, response);
+		}
 	}
 }

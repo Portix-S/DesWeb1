@@ -38,5 +38,7 @@
                 </tr>
             </table>
         </form>
+		<a href="pagInicial.jsp">Menu Principal</a>
+
     </body>
 </html>

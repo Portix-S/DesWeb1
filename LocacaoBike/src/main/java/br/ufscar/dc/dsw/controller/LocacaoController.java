@@ -135,6 +135,8 @@ public class LocacaoController extends HttpServlet {
         }
         response.sendRedirect("lista");  
         
+        //RequestDispatcher dispatcher = request.getRequestDispatcher("/locacoes/lista");
+        //dispatcher.forward(request, response);
         //response.sendRedirect("lista");
     }
 

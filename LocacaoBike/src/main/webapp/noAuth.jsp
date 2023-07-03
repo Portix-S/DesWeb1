@@ -17,8 +17,12 @@
                     <c:forEach var="erro" items="${mensagens.erros}">
                         <li> ${erro} </li>
                         </c:forEach>
+                        
                 </ul>
             </div>
+            <ul>
+                <a href="login.jsp"> Voltar para o Login</a>
+            </ul>
         </c:if>
     </body>
 </html>
